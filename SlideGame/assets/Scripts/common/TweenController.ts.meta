@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "a802a9ff-7306-425f-86e1-b9f562d0170b",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/common/TweenController.js",
+    "simulateGlobals": []
+  }
+}

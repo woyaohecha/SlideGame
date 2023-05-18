@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "f931f897-e415-4831-9833-3c65e872abbc",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/common/CamerAdapt.js",
+    "simulateGlobals": []
+  }
+}

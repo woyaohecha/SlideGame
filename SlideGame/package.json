@@ -1,0 +1,15 @@
+{
+  "name": "MusicBall",
+  "type": "3d",
+  "uuid": "a24c5122-a628-4e8d-a387-0e8ac3a496a1",
+  "version": "3.6.1",
+  "creator": {
+    "version": "3.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.12"
+  },
+  "dependencies": {
+    "dsbridge-cocos": "^3.1.4"
+  }
+}

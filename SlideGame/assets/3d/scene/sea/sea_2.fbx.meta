@@ -1,0 +1,79 @@
+{
+  "ver": "2.3.1",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0ea681bc-ac13-426f-9585-cad47f50b664",
+  "files": [],
+  "subMetas": {
+    "6e55e": {
+      "importer": "gltf-mesh",
+      "uuid": "0ea681bc-ac13-426f-9585-cad47f50b664@6e55e",
+      "displayName": "",
+      "id": "6e55e",
+      "name": "node_id3.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9cde3": {
+      "importer": "gltf-material",
+      "uuid": "0ea681bc-ac13-426f-9585-cad47f50b664@9cde3",
+      "displayName": "",
+      "id": "9cde3",
+      "name": "Material_30.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "4857a": {
+      "importer": "gltf-scene",
+      "uuid": "0ea681bc-ac13-426f-9585-cad47f50b664@4857a",
+      "displayName": "",
+      "id": "4857a",
+      "name": "sea_2.prefab",
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "0ea681bc-ac13-426f-9585-cad47f50b664@4857a",
+    "assetFinder": {
+      "meshes": [
+        "0ea681bc-ac13-426f-9585-cad47f50b664@6e55e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "0ea681bc-ac13-426f-9585-cad47f50b664@9cde3"
+      ],
+      "scenes": [
+        "0ea681bc-ac13-426f-9585-cad47f50b664@4857a"
+      ]
+    },
+    "legacyFbxImporter": true,
+    "fbx": {
+      "smartMaterialEnabled": false
+    }
+  }
+}

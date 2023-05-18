@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "9dc62806-b1ee-4a0f-be83-e1c348d1e405",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/start/StartModel.js",
+    "simulateGlobals": []
+  }
+}

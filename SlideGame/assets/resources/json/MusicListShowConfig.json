@@ -1,0 +1,74 @@
+[
+    {
+        "musicName": "positions",
+        "duration": "02:52",
+        "slideGoals": "90 次",
+        "EstimatedCalories": "23Kcal",
+        "difficulty": 3,
+        "bpm": 144,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "Sinking",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    },
+    {
+        "musicName": "What Was I Thinkin'",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    },
+    {
+        "musicName": "Sugar We're Goin' Down",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    },
+    {
+        "musicName": "Tabata Wod",
+        "duration": "04:03",
+        "slideGoals": "98 次",
+        "EstimatedCalories": "20Kcal",
+        "difficulty": 2,
+        "bpm": 96,
+        "gameConditions": "节奏滑行完成度大于 80%"
+    },
+    {
+        "musicName": "第六首歌",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    },
+    {
+        "musicName": "第七首歌",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    },
+    {
+        "musicName": "第八首歌",
+        "duration": "03:20",
+        "slideGoals": "200 Slide",
+        "EstimatedCalories": "200Kcal",
+        "difficulty": 3,
+        "bpm": 120,
+        "gameConditions": "Slide achievement more than 80%"
+    }
+]
