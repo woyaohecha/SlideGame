@@ -9,7 +9,7 @@
  * Copyright (c) 2023 by 林武, All Rights Reserved. 
  */
 
-import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math } from 'cc';
+import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math, profiler, animation, SkeletalAnimation, CurveRange } from 'cc';
 import { IGameUI } from './GameContract';
 import { GamePresenter } from './GamePresenter';
 import { GlobalModel } from '../global/GlobalModel';
@@ -21,6 +21,9 @@ const { ccclass, property } = _decorator;
 
 @ccclass('GameUI')
 export class GameUI extends Component implements IGameUI {
+
+    @property(Label)
+    rateLabel: Label = null;
 
     @property({ type: Node })
     cameraNode: Node = null;
@@ -56,6 +59,8 @@ export class GameUI extends Component implements IGameUI {
     SpeedNode: Node = null;
     @property({ type: Node })
     SlowNode: Node = null;
+    @property(ParticleSystem)
+    snow: ParticleSystem = null;
 
     private mGamePresenter: GamePresenter = null;
     /**
@@ -137,10 +142,10 @@ export class GameUI extends Component implements IGameUI {
     @property({ type: Label })
     TestLabel: Label = null;
 
-    @property(ParticleSystem)
-    leftHit: ParticleSystem = null;
-    @property(ParticleSystem)
-    rightHit: ParticleSystem = null;
+    @property(Node)
+    leftHit: Node = null;
+    @property(Node)
+    rightHit: Node = null;
 
     private audioSource: AudioSourceComponent = null;
 
@@ -158,7 +163,7 @@ export class GameUI extends Component implements IGameUI {
         this.TestLabel.string = "";
 
         bridge.register("notifySlide", (code) => {
-            self.notifySlide();
+            self.notifySlide(code);
         })
 
         bridge.register("disconnect", (code) => {
@@ -174,11 +179,14 @@ export class GameUI extends Component implements IGameUI {
                 director.loadScene("GameOver");
             });
         })
+        this.missPos = this.MissNode.getPosition();
+        this.comboPos = this.ComboNode.getPosition();
 
 
     }
 
     start() {
+        profiler.showStats();
         let self = this;
         this.audioSource = this.node.getComponent(AudioSourceComponent);
         // loader.loadRes("music/main/" + GlobalModel.getInstances().getMisicKeyLevel(), AudioClip, (err, audioClip) => {
@@ -201,8 +209,7 @@ export class GameUI extends Component implements IGameUI {
         this.SlowNode.active = false;
         this.SpeedNode.active = false;
 
-        this.missPos = this.MissNode.getPosition();
-        this.comboPos = this.ComboNode.getPosition();
+        this.missPos.y = this.MissNode.position.y;
     }
 
     onDestroy() {
@@ -469,6 +476,8 @@ export class GameUI extends Component implements IGameUI {
 
     //
     update(dt: number) {
+        console.log("--------------------------------------------帧率：", game.frameRate)
+        this.rateLabel.string = "帧率：" + game.frameRate;
         if (this.mGamePresenter) {
             this.mGamePresenter.update(dt);
         }
@@ -535,15 +544,15 @@ export class GameUI extends Component implements IGameUI {
                 this.Isnowtime = true;
                 this.nowtime = new Date().getTime();
             }
-            if (stageNode1.position.x == -1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = true;
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
-            } else if (stageNode1.position.x == 1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active) {
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = true;
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
-                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
-            }
+            // if (stageNode1.position.x == -1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = true;
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
+            // } else if (stageNode1.position.x == 1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active) {
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = true;
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
+            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
+            // }
         } else {
             if (this.Isnowtime) {
                 this.Isnowtime = false;
@@ -551,8 +560,8 @@ export class GameUI extends Component implements IGameUI {
 
                 // console.log("判定的时间:", this.nowtime / 1000);
             }
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
 
             if (!this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
                 this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = true;
@@ -651,8 +660,9 @@ export class GameUI extends Component implements IGameUI {
 
         this.MaxCOMBO = 0;
         this.MissNode.active = true;
+
         tween(this.MissNode)
-            .by(0.1, { position: new Vec3(300, this.missPos.y, this.missPos.z) })
+            .by(0.1, { position: new Vec3(300, 0, 0) })
             .call(() => {
                 this.scheduleOnce(() => {
                     this.MissNode.active = false;
@@ -682,7 +692,7 @@ export class GameUI extends Component implements IGameUI {
 
         this.PerfectNode.active = true;
         tween(this.PerfectNode)
-            .by(0.1, { position: new Vec3(300, this.missPos.y, this.missPos.z) })
+            .by(0.1, { position: new Vec3(300, 0, 0) })
             .call(() => {
                 this.scheduleOnce(() => {
                     this.PerfectNode.active = false;
@@ -713,11 +723,13 @@ export class GameUI extends Component implements IGameUI {
         }
 
         this.GreatNode.active = true;
+        console.log("------------------------GreatNodePos0:", this.GreatNode.position)
         tween(this.GreatNode)
-            .by(0.1, { position: new Vec3(300, this.missPos.y, this.missPos.z) })
+            .by(0.1, { position: new Vec3(300, 0, 0) })
             .call(() => {
                 this.scheduleOnce(() => {
                     this.GreatNode.active = false;
+                    console.log("------------------------GreatNodePos1:", this.GreatNode.position)
                     this.GreatNode.setPosition(this.missPos);
                 }, 0.9);
             })
@@ -746,7 +758,7 @@ export class GameUI extends Component implements IGameUI {
 
         this.S_PerfectNode.active = true;
         tween(this.S_PerfectNode)
-            .by(0.1, { position: new Vec3(300, this.missPos.y, this.missPos.z) })
+            .by(0.1, { position: new Vec3(300, 0, 0) })
             .call(() => {
                 this.scheduleOnce(() => {
                     this.S_PerfectNode.active = false;
@@ -761,6 +773,7 @@ export class GameUI extends Component implements IGameUI {
     }
 
     ShowComboNode() {
+        this.setSnow();
         this.NoMiss += 1;
         this.MaxCOMBO += 1;
         let MaxCOMBO = GlobalModel.getInstances().getMaxCOMBO();
@@ -806,7 +819,7 @@ export class GameUI extends Component implements IGameUI {
         }
         tweenNode.active = true;
         tween(tweenNode)
-            .by(0.1, { position: new Vec3(300, this.missPos.y, this.missPos.z) })
+            .by(0.1, { position: new Vec3(300, 0, 0) })
             .call(() => {
                 this.scheduleOnce(() => {
                     tweenNode.active = false;
@@ -861,7 +874,7 @@ export class GameUI extends Component implements IGameUI {
             type = 3;
         } else if (distance < 0.54 && distancex != 1) {
             type = 2;
-        } else if (distance > 0.54 && distance < 0.58 && distancex != 1) {
+        } else if (distance > 0.54 && distance < 0.6 && distancex != 1) {
             type = 1;
         }
         return type;
@@ -898,18 +911,40 @@ export class GameUI extends Component implements IGameUI {
 
         let hitEf: ParticleSystem;
         if (stageNode.position.x == -1) {
+            this.leftHit.active = true;
+            let anim = this.leftHit.getComponent(SkeletalAnimation);
+            anim.once(SkeletalAnimation.EventType.FINISHED, () => {
+                this.leftHit.active = false;
+            })
+            anim.play();
 
-            this.leftHit.play();
             // hitEf = this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").getChildByName("HitEffect").getComponent(ParticleSystem);
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = true;
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
+            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = true;   //ddddddddd
+            // this.leftHit.play();
+
+
+            // stageNode.getChildByName("prefab");
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
         } else if (stageNode.position.x == 1) {
 
-            this.rightHit.play();
+
             // hitEf = this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").getChildByName("HitEffect").getComponent(ParticleSystem);
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = true;
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
+            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = true;//ddddddddd
+            // this.rightHit.play();
+            // let cube = stageNode.getChildByName("prefab").getChildByName("Cube");
+            // cube.active = true;
+            // cube.getComponent(SkeletalAnimation).once(SkeletalAnimation.EventType.FINISHED, () => {
+            //     cube.active = false;
+            // })
+            this.rightHit.active = true;
+            let anim = this.rightHit.getComponent(SkeletalAnimation);
+            anim.once(SkeletalAnimation.EventType.FINISHED, () => {
+                this.rightHit.active = false;
+            })
+            anim.play();
+            // stageNode.getChildByName("prefab").getChildByName("Cube").getComponent(SkeletalAnimation).play();
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
         }
 
@@ -920,8 +955,8 @@ export class GameUI extends Component implements IGameUI {
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
 
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
+            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
 
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = true;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = true;
@@ -1011,7 +1046,10 @@ export class GameUI extends Component implements IGameUI {
         this.showPassUI();
     }
 
-    notifySlide() {
+    notifySlide(code?) {
+        if (code) {
+            console.error("原生消息:" + code);
+        }
         let nextZ: number = this.mGamePresenter.mGameModel.getNextStageZ();
         let index: number = this.mGamePresenter.getPlayerStageIndex();
         let stageNode: Node = this.stageArr[index];
@@ -1029,6 +1067,31 @@ export class GameUI extends Component implements IGameUI {
         this.TestLabel.string = "收到消息:" + Time;
 
         console.error("收到消息:" + Time);
+    }
+
+    setSnow() {
+        let value = new CurveRange();
+        if (this.MaxCOMBO != 0) {
+            switch (this.MaxCOMBO % 20) {
+                case 0:
+                    value.constant = 1000;
+                    break;
+                case 5:
+                    value.constant = 400;
+                    break;
+                case 10:
+                    value.constant = 600;
+                    break;
+                case 15:
+                    value.constant = 800;
+                    break;
+                default:
+                    value.constant = 200;
+            }
+            this.snow.rateOverTime = value;
+        }
+
+
     }
 
     OnRightBtn() {

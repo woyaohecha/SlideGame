@@ -110,8 +110,14 @@
   "splash-setting": {
     "url": "project://assets/resources/load/Bg1.png",
     "displayRatio": 1.2,
-    "clearColor": {},
-    "watermarkLocation": "default"
+    "clearColor": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "watermarkLocation": "default",
+    "displayWatermark": false
   },
   "__version__": "1.3.3"
 }

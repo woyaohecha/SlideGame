@@ -1,0 +1,94 @@
+{
+  "__type__": "cc.Material",
+  "_name": "",
+  "_objFlags": 0,
+  "_native": "",
+  "_effectAsset": {
+    "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+    "__expectedType__": "cc.EffectAsset"
+  },
+  "_techIdx": "1",
+  "_defines": [
+    {
+      "USE_NORMAL_MAP": true,
+      "USE_SPECULAR_GLOSSINESS_MAP": true,
+      "USE_ALBEDO_MAP": true,
+      "USE_EMISSIVE_MAP": true,
+      "HAS_EXPORTED_GLOSSINESS": true,
+      "USE_SHININESS_MAP_CHANNEL": true
+    },
+    {},
+    {}
+  ],
+  "_states": [
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    },
+    {
+      "rasterizerState": {},
+      "depthStencilState": {},
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      }
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "a85ee834-da67-47fd-a973-0ea10b9b68d3@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "albedoScale": 20,
+      "alphaThreshold": 0.614,
+      "emissive": {
+        "__type__": "cc.Color",
+        "r": 155,
+        "g": 155,
+        "b": 155,
+        "a": 255
+      },
+      "emissiveMap": {
+        "__uuid__": "a85ee834-da67-47fd-a973-0ea10b9b68d3@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "specularGlossinessMap": {
+        "__uuid__": "a85ee834-da67-47fd-a973-0ea10b9b68d3@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "transparencyMap": {
+        "__uuid__": "cc7d6ca8-369d-4153-bef6-b8f415b08288@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "transparencyFactor": 0.703,
+      "normalStrength": 0.752,
+      "normalMap": {
+        "__uuid__": "a95d1035-f1bf-4b6c-aa5e-564c05550a4e@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      },
+      "glossiness": 0.625,
+      "metallicMap": {
+        "__uuid__": "cc7d6ca8-369d-4153-bef6-b8f415b08288@6c48a",
+        "__expectedType__": "cc.Texture2D"
+      }
+    },
+    {},
+    {}
+  ]
+}
