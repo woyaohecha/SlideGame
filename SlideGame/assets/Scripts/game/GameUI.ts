@@ -2,8 +2,8 @@
  * @Author: 林武
  * @Date: 2023-03-22 16:16:37
  * @LastEditors: 林武
- * @LastEditTime: 2023-05-18 10:43:18
- * @FilePath: \main\assets\Scripts\game\GameUI.ts
+ * @LastEditTime: 2023-05-20 10:34:48
+ * @FilePath: \SlideGame\assets\Scripts\game\GameUI.ts
  * @Description: 
  * 
  * Copyright (c) 2023 by 林武, All Rights Reserved. 
@@ -1047,8 +1047,15 @@ export class GameUI extends Component implements IGameUI {
     }
 
     notifySlide(code?) {
+        console.error("原生消息:" + code);
+
+        console.error("--------------------------------");
+        console.log("当前播放音乐：", GlobalModel.getInstances().getMisicNameLevel());
+        console.log("当前音频状态：", this.audioSource.state);
+        console.log("是否正在播放：", this.audioSource.playing);
+        console.log("当前音频时间：", this.audioSource.currentTime);
+        console.log("我的计时器：", this.TimeLabel.string);
         if (code) {
-            console.error("原生消息:" + code);
         }
         let nextZ: number = this.mGamePresenter.mGameModel.getNextStageZ();
         let index: number = this.mGamePresenter.getPlayerStageIndex();
