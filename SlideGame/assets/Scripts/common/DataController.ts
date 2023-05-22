@@ -135,7 +135,7 @@ export default class DataController {
         return this.getNumber("max_score");
     }
 
-    public static setAuthorize(state:boolean) {
+    public static setAuthorize(state: boolean) {
         this.setBoolean("Authorize", state);
     }
     public static isAuthorize() {

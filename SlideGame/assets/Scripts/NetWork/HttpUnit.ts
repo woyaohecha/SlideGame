@@ -128,6 +128,7 @@ export default class HttpUnit {
      * 获取某个歌曲的排行榜数据
      */
     public static getSongtRank(song_name, callback?) {
+        console.log("1111111")
         var url = NetConfig.RootPath + NetConfig.getSongtRank;
         let paramsObj: any = {};
         paramsObj.uid = HttpUnit.uid;
@@ -140,7 +141,7 @@ export default class HttpUnit {
             console.log("------------------------ HttpUnit 获取某个歌曲的排行榜数据 res:", res);
             if (res.data) {
                 if (callback) {
-                    callback(res.data.songRank);
+                    callback(res.data);
                 }
             }
         }, null);

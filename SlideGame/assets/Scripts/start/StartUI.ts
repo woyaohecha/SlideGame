@@ -66,6 +66,7 @@ export class StartUI extends Component implements IStartUI {
 
         let selectMode = DataController.getSelectMode();
         let SelectLevel = DataController.getSelectLevel();
+        console.log("selectMode,selectLevel:", selectMode, SelectLevel)
         GlobalModel.getInstances().setSelectMode(selectMode);
         let selectLevelID: number = this.mStartMode.getSelectLevel();
         GlobalModel.getInstances().setSelectlevel(SelectLevel);
@@ -133,7 +134,6 @@ export class StartUI extends Component implements IStartUI {
                     self.audioSource.clip = audioClip;
                     self.audioSource.play();
                     self.isCutMusic = true;
-                    console.log("歌曲时长:", audioClip.getDuration());
                 }
             }
         });

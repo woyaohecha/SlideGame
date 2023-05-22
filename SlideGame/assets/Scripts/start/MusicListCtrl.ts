@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, Prefab, v3, UITransform, instantiate, math, NodeEventType, EventTouch, CCObject, Vec3, Vec2, tween, JsonAsset, Sprite, SpriteFrame, Label, resources, loader, Texture2D, AudioSource } from 'cc';
 import { GlobalModel } from '../global/GlobalModel';
 import HttpUnit from '../NetWork/HttpUnit';
+import { RankScrollView } from './RankScrollView';
 import { StartUI } from './StartUI';
 const { ccclass, property } = _decorator;
 
@@ -16,6 +17,9 @@ export class MusicList extends Component {
     @property(Node)
     musicInfoPanel: Node = null;
 
+    @property(RankScrollView)
+    rankScrollView: RankScrollView = null;
+
     musicList: Node;
     musicListInfo: object;
 
@@ -25,6 +29,10 @@ export class MusicList extends Component {
         this.node.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
         this.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
         this.node.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+
+    }
+
+    start() {
         this.initList();
     }
 
@@ -70,6 +78,7 @@ export class MusicList extends Component {
             this.musicList.addChild(musicItem);
         }
         this.setMusicInfoPanel(0);
+        this.rankScrollView.UpDateRank();
 
     }
 
@@ -142,6 +151,7 @@ export class MusicList extends Component {
                             } else {
                                 this.musicList.children[i].getChildByName("Checked").active = false;
                             }
+                            this.rankScrollView.UpDateRank();
                         })
                         .start();
                 } else {
@@ -157,6 +167,7 @@ export class MusicList extends Component {
                             } else {
                                 this.musicList.children[i].getChildByName("Checked").active = false;
                             }
+                            this.rankScrollView.UpDateRank();
                         })
                         .start();
                 }
@@ -178,6 +189,7 @@ export class MusicList extends Component {
                             } else {
                                 this.musicList.children[i].getChildByName("Checked").active = false;
                             }
+                            this.rankScrollView.UpDateRank();
                         })
                         .start();
                 } else {
@@ -193,12 +205,12 @@ export class MusicList extends Component {
                             } else {
                                 this.musicList.children[i].getChildByName("Checked").active = false;
                             }
+                            this.rankScrollView.UpDateRank();
                         })
                         .start();
                 }
             }
         }
-
     }
 
     clickChangeMusic(e: EventTouch) {

@@ -28,7 +28,7 @@ export class LoadUI extends Component {
     BallNode: Node = null;
 
     start() {
-        game.frameRate = 59;
+        // game.frameRate = 59;
         if (sys.platform == sys.Platform.WECHAT_GAME) {
             this.loadSubpackage();
         } else {

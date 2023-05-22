@@ -186,7 +186,7 @@ export class GameUI extends Component implements IGameUI {
     }
 
     start() {
-        profiler.showStats();
+        // profiler.showStats();
         let self = this;
         this.audioSource = this.node.getComponent(AudioSourceComponent);
         // loader.loadRes("music/main/" + GlobalModel.getInstances().getMisicKeyLevel(), AudioClip, (err, audioClip) => {
@@ -916,7 +916,6 @@ export class GameUI extends Component implements IGameUI {
             anim.once(SkeletalAnimation.EventType.FINISHED, () => {
                 this.leftHit.active = false;
             })
-            anim.play();
 
             // hitEf = this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").getChildByName("HitEffect").getComponent(ParticleSystem);
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = true;   //ddddddddd
