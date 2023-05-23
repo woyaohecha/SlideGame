@@ -4,21 +4,23 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319",
+    "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
     "__expectedType__": "cc.EffectAsset"
   },
-  "_techIdx": "1",
+  "_techIdx": 0,
   "_defines": [
-    {},
+    {
+      "DCC_APP_NAME": 1,
+      "USE_SHININESS_MAP": true,
+      "USE_ALBEDO_MAP": true
+    },
     {},
     {}
   ],
   "_states": [
     {
       "rasterizerState": {},
-      "depthStencilState": {
-        "depthWrite": true
-      },
+      "depthStencilState": {},
       "blendState": {
         "targets": [
           {}
@@ -46,25 +48,25 @@
   ],
   "_props": [
     {
-      "mainColor": {
-        "__type__": "cc.Color",
-        "r": 255,
-        "g": 247,
-        "b": 56,
-        "a": 68
+      "mainTexture": {
+        "__uuid__": "e6320147-ef0d-4398-a6a4-320f186b7788@5189c",
+        "__expectedType__": "cc.Texture2D"
       },
-      "alphaThreshold": 0.458,
-      "occlusion": 0.99,
-      "roughness": 0.735,
-      "metallic": 0.597,
-      "specularIntensity": 0.528,
       "emissive": {
         "__type__": "cc.Color",
-        "r": 253,
-        "g": 255,
-        "b": 216,
+        "r": 204,
+        "g": 204,
+        "b": 204,
         "a": 255
-      }
+      },
+      "specularColor": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 0
+      },
+      "metallic": 0.6
     },
     {},
     {}

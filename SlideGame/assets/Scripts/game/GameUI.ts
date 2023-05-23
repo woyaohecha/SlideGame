@@ -9,7 +9,7 @@
  * Copyright (c) 2023 by 林武, All Rights Reserved. 
  */
 
-import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math, profiler, animation, SkeletalAnimation, CurveRange } from 'cc';
+import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math, profiler, animation, SkeletalAnimation, CurveRange, easing } from 'cc';
 import { IGameUI } from './GameContract';
 import { GamePresenter } from './GamePresenter';
 import { GlobalModel } from '../global/GlobalModel';
@@ -21,9 +21,6 @@ const { ccclass, property } = _decorator;
 
 @ccclass('GameUI')
 export class GameUI extends Component implements IGameUI {
-
-    @property(Label)
-    rateLabel: Label = null;
 
     @property({ type: Node })
     cameraNode: Node = null;
@@ -139,9 +136,6 @@ export class GameUI extends Component implements IGameUI {
     @property({ type: Prefab })
     treadEffect: Prefab = null;
 
-    @property({ type: Label })
-    TestLabel: Label = null;
-
     @property(Node)
     leftHit: Node = null;
     @property(Node)
@@ -159,8 +153,6 @@ export class GameUI extends Component implements IGameUI {
         // game.on(Game.EVENT_SHOW, function () {
         //     // self.OnContinueBtn();
         // });
-
-        this.TestLabel.string = "";
 
         bridge.register("notifySlide", (code) => {
             self.notifySlide(code);
@@ -374,7 +366,7 @@ export class GameUI extends Component implements IGameUI {
         let Time = this.GameStartNode.getChildByName("Time").getComponent(Label) as Label;
         Time.string = String(this.GameStarTime);
 
-        let soundSource = this.node.parent.getChildByName("倒计时").getComponent(AudioSource) as AudioSource;
+        let soundSource = this.node.parent.getChildByName("CountDown").getComponent(AudioSource) as AudioSource;
         soundSource.play();
 
         this.GameStartNodeAni();
@@ -477,7 +469,6 @@ export class GameUI extends Component implements IGameUI {
     //
     update(dt: number) {
         console.log("--------------------------------------------帧率：", game.frameRate)
-        this.rateLabel.string = "帧率：" + game.frameRate;
         if (this.mGamePresenter) {
             this.mGamePresenter.update(dt);
         }
@@ -544,15 +535,15 @@ export class GameUI extends Component implements IGameUI {
                 this.Isnowtime = true;
                 this.nowtime = new Date().getTime();
             }
-            // if (stageNode1.position.x == -1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = true;
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
-            // } else if (stageNode1.position.x == 1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active) {
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = true;
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
-            //     this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
-            // }
+            if (stageNode1.position.x == -1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = true;
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
+            } else if (stageNode1.position.x == 1 && !this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active) {
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = true;
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
+                this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
+            }
         } else {
             if (this.Isnowtime) {
                 this.Isnowtime = false;
@@ -560,8 +551,8 @@ export class GameUI extends Component implements IGameUI {
 
                 // console.log("判定的时间:", this.nowtime / 1000);
             }
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
+            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
+            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
 
             if (!this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active) {
                 this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = true;
@@ -899,68 +890,42 @@ export class GameUI extends Component implements IGameUI {
 
     //
     playTreadStageEffect(stageNode: Node): void {
-        // let node: Node = instantiate(this.treadEffect);
-        // // node.position = new Vec3(stageNode.position.x, stageNode.position.y, stageNode.position.z);
-        // // node.scale = new Vec3(4, 4, 4);
-        // // this.gameNode.addChild(node)
-
-        // node.position = new Vec3(-stageNode.position.x, 0.1, 0);
-        // node.scale = new Vec3(1, 1, 1);
-        // this.DemonstrationNode.addChild(node)
-        // stageNode.active = false;
-
-        let hitEf: ParticleSystem;
         if (stageNode.position.x == -1) {
             this.leftHit.active = true;
-            let anim = this.leftHit.getComponent(SkeletalAnimation);
-            anim.once(SkeletalAnimation.EventType.FINISHED, () => {
-                this.leftHit.active = false;
-            })
+            let startScale = new Vec3(this.leftHit.scale);
+            let targetScale = new Vec3(this.leftHit.scale.x * 1.4, this.leftHit.scale.y * 1.4, this.leftHit.scale.z * 1.4);
+            tween(this.leftHit)
+                .to(0.3, { scale: targetScale })
+                .call(() => {
+                    this.leftHit.active = false;
+                    this.leftHit.setScale(startScale);
+                })
+                .start();
 
-            // hitEf = this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").getChildByName("HitEffect").getComponent(ParticleSystem);
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = true;   //ddddddddd
-            // this.leftHit.play();
-
-
-            // stageNode.getChildByName("prefab");
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = false;
         } else if (stageNode.position.x == 1) {
-
-
-            // hitEf = this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").getChildByName("HitEffect").getComponent(ParticleSystem);
-            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = true;//ddddddddd
-            // this.rightHit.play();
-            // let cube = stageNode.getChildByName("prefab").getChildByName("Cube");
-            // cube.active = true;
-            // cube.getComponent(SkeletalAnimation).once(SkeletalAnimation.EventType.FINISHED, () => {
-            //     cube.active = false;
-            // })
             this.rightHit.active = true;
-            let anim = this.rightHit.getComponent(SkeletalAnimation);
-            anim.once(SkeletalAnimation.EventType.FINISHED, () => {
-                this.rightHit.active = false;
-            })
-            anim.play();
-            // stageNode.getChildByName("prefab").getChildByName("Cube").getComponent(SkeletalAnimation).play();
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
+            let startScale = new Vec3(this.rightHit.scale);
+            let targetScale = new Vec3(this.rightHit.scale.x * 1.4, this.rightHit.scale.y * 1.4, this.rightHit.scale.z * 1.4);
+            tween(this.rightHit)
+                .to(0.3, { scale: targetScale })
+                .call(() => {
+                    this.rightHit.active = false;
+                    this.rightHit.setScale(startScale);
+                })
+                .start();
+
+            this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = true;//ddddddddd
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = false;
         }
 
-        // stageNode.getChildByName("CubeHitEffect").active = true;
-        // stageNode.getChildByName("prefab").active = false;
-        // hitEf.play();
         this.scheduleOnce(() => {
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Hit").active = false;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Hit").active = false;
-
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Tips").active = false;
-            // this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Tips").active = false;
-
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Left").getChildByName("Idle").active = true;
             this.DemonstrationNode.getChildByName("HitNode").getChildByName("Right").getChildByName("Idle").active = true;
-            // node.active = false;
-            // hitEf.stop();
+
         }, 0.5)
     }
 
@@ -1070,8 +1035,6 @@ export class GameUI extends Component implements IGameUI {
 
         let DateTime = new Date();
         let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
-        this.TestLabel.string = "收到消息:" + Time;
-
         console.error("收到消息:" + Time);
     }
 
