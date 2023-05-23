@@ -141,27 +141,27 @@ export class StartUI extends Component implements IStartUI {
 
     btnStartGameEvent(): void {
         var self = this;
-        // console.log("开始游戏 com.fed.game.start 存在方法:", bridge.hasNativeMethod("com.fed.game.start"));
-        // if (bridge.hasNativeMethod("com.fed.game.start")) {
-        //     bridge.call("com.fed.game.start", null, function (ret) {
-        //         console.log("开始游戏 com.fed.game.start 收到消息:", JSON.stringify(ret));
-        //         if (JSON.stringify(ret)) {
-        //             self.Transition.active = true;
-        //             self.audioSource.stop();
-        //             self.audioSource = null;
-        //             director.preloadScene("game", () => {
-        //                 director.loadScene("game");
-        //             });
-        //         }
-        //     })
-        // }
+        console.log("开始游戏 com.fed.game.start 存在方法:", bridge.hasNativeMethod("com.fed.game.start"));
+        if (bridge.hasNativeMethod("com.fed.game.start")) {
+            bridge.call("com.fed.game.start", null, function (ret) {
+                console.log("开始游戏 com.fed.game.start 收到消息:", JSON.stringify(ret));
+                if (JSON.stringify(ret)) {
+                    self.Transition.active = true;
+                    self.audioSource.stop();
+                    self.audioSource = null;
+                    director.preloadScene("game", () => {
+                        director.loadScene("game");
+                    });
+                }
+            })
+        }
 
-        self.Transition.active = true;
-        self.audioSource.stop();
-        self.audioSource = null;
-        director.preloadScene("game", () => {
-            director.loadScene("game");
-        });
+        // self.Transition.active = true;
+        // self.audioSource.stop();
+        // self.audioSource = null;
+        // director.preloadScene("game", () => {
+        //     director.loadScene("game");
+        // });
     }
 
     btnQuitGameEvent(): void {
