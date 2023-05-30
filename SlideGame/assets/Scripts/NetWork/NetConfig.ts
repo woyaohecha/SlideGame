@@ -13,7 +13,7 @@
  * 网络的相关接口配置
  */
 export default class NetConfig {
-    public static readonly RootPath = "http://tempo-game.sxycykj.net/api/app/clientAPI";
+    public static readonly RootPath = "https://tempo-game.sxycykj.net/api/app/clientAPI";
 
     /** 加载用户信息 */
     public static readonly getUserInfoByToken = "/getUserInfoByToken";

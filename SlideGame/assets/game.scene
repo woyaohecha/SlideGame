@@ -37,7 +37,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 383
+      "__id__": 385
     },
     "_id": "a886eee4-0fe5-4eb0-b6fd-4d9129d00117"
   },
@@ -2819,7 +2819,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Starting_point_L_ON",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 97
     },
@@ -9591,7 +9591,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 392.9795918367347,
+    "_orthoHeight": 396.2144112478031,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -10737,6 +10737,9 @@
     "targetOverrides": [
       {
         "__id__": 380
+      },
+      {
+        "__id__": 383
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -10780,21 +10783,43 @@
     ]
   },
   {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": {
+      "__id__": 223
+    },
+    "sourceInfo": null,
+    "propertyPath": [
+      "snow"
+    ],
+    "target": {
+      "__id__": 8
+    },
+    "targetInfo": {
+      "__id__": 384
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "87TycHwDlG5byZUU4IA7lm"
+    ]
+  },
+  {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 384
-    },
-    "shadows": {
-      "__id__": 385
-    },
-    "_skybox": {
       "__id__": 386
     },
-    "fog": {
+    "shadows": {
       "__id__": 387
     },
-    "octree": {
+    "_skybox": {
       "__id__": 388
+    },
+    "fog": {
+      "__id__": 389
+    },
+    "octree": {
+      "__id__": 390
     }
   },
   {
@@ -10892,7 +10917,7 @@
     "_editableMaterial": null,
     "_reflectionHDR": null,
     "_reflectionLDR": null,
-    "_rotationAngle": 360
+    "_rotationAngle": 30
   },
   {
     "__type__": "cc.FogInfo",

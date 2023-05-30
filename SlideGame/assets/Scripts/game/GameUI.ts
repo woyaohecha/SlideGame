@@ -468,7 +468,6 @@ export class GameUI extends Component implements IGameUI {
 
     //
     update(dt: number) {
-        console.log("--------------------------------------------帧率：", game.frameRate)
         if (this.mGamePresenter) {
             this.mGamePresenter.update(dt);
         }

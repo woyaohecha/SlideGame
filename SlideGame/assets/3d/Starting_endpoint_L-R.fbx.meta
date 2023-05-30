@@ -1,0 +1,167 @@
+{
+  "ver": "2.3.1",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9",
+  "files": [],
+  "subMetas": {
+    "55341": {
+      "importer": "gltf-mesh",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@55341",
+      "displayName": "",
+      "id": "55341",
+      "name": "Starting_endpoint_L_OFF.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5ca38": {
+      "importer": "gltf-mesh",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@5ca38",
+      "displayName": "",
+      "id": "5ca38",
+      "name": "Starting_endpoint_L_ON.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b2c86": {
+      "importer": "gltf-mesh",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@b2c86",
+      "displayName": "",
+      "id": "b2c86",
+      "name": "Starting_endpoint_R_OFF.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "81cae": {
+      "importer": "gltf-mesh",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@81cae",
+      "displayName": "",
+      "id": "81cae",
+      "name": "Starting_endpoint_R_ON.mesh",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b896e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@b896e",
+      "displayName": "",
+      "id": "b896e",
+      "name": "file6.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "5189c": {
+      "importer": "texture",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@5189c",
+      "displayName": "",
+      "id": "5189c",
+      "name": "file6.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "572d3a44-c00e-4e25-99db-7a09ba501ce9@b896e"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0f6d8": {
+      "importer": "gltf-scene",
+      "uuid": "572d3a44-c00e-4e25-99db-7a09ba501ce9@0f6d8",
+      "displayName": "",
+      "id": "0f6d8",
+      "name": "Starting_endpoint_L-R.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "file6",
+        "uri": "572d3a44-c00e-4e25-99db-7a09ba501ce9@b896e"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "allowMeshDataAccess": true,
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "redirect": "572d3a44-c00e-4e25-99db-7a09ba501ce9@0f6d8",
+    "assetFinder": {
+      "meshes": [
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@5ca38",
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@55341",
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@b2c86",
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@81cae"
+      ],
+      "skeletons": [],
+      "textures": [
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@5189c"
+      ],
+      "materials": [
+        "f72ffb25-18b2-4b93-aee8-42fde2efc543"
+      ],
+      "scenes": [
+        "572d3a44-c00e-4e25-99db-7a09ba501ce9@0f6d8"
+      ]
+    },
+    "dumpMaterials": true,
+    "materialDumpDir": "db://assets/3d/Materials_Starting_endpoint_L-R"
+  }
+}
