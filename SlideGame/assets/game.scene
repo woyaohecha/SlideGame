@@ -37,7 +37,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 385
+      "__id__": 383
     },
     "_id": "a886eee4-0fe5-4eb0-b6fd-4d9129d00117"
   },
@@ -9591,7 +9591,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 466.1978947368421,
+    "_orthoHeight": 392.9795918367347,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -10737,9 +10737,6 @@
     "targetOverrides": [
       {
         "__id__": 380
-      },
-      {
-        "__id__": 383
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -10783,43 +10780,21 @@
     ]
   },
   {
-    "__type__": "cc.TargetOverrideInfo",
-    "source": {
-      "__id__": 223
-    },
-    "sourceInfo": null,
-    "propertyPath": [
-      "snow"
-    ],
-    "target": {
-      "__id__": 8
-    },
-    "targetInfo": {
-      "__id__": 384
-    }
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "87TycHwDlG5byZUU4IA7lm"
-    ]
-  },
-  {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 386
+      "__id__": 384
     },
     "shadows": {
-      "__id__": 387
+      "__id__": 385
     },
     "_skybox": {
-      "__id__": 388
+      "__id__": 386
     },
     "fog": {
-      "__id__": 389
+      "__id__": 387
     },
     "octree": {
-      "__id__": 390
+      "__id__": 388
     }
   },
   {
@@ -10867,7 +10842,7 @@
       "x": 0,
       "y": 0,
       "z": 0,
-      "w": 1
+      "w": 0
     }
   },
   {
@@ -10907,7 +10882,7 @@
       "__expectedType__": "cc.TextureCube"
     },
     "_envmapLDR": {
-      "__uuid__": "bf4c68c5-a10c-4112-a494-26395bb36e04@b47c0",
+      "__uuid__": "30df0c48-789f-409d-800a-3bbfc214aa81@b47c0",
       "__expectedType__": "cc.TextureCube"
     },
     "_diffuseMapHDR": null,

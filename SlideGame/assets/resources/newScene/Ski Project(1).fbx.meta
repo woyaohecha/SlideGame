@@ -2,12 +2,12 @@
   "ver": "2.3.1",
   "importer": "fbx",
   "imported": true,
-  "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788",
+  "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40",
   "files": [],
   "subMetas": {
     "34003": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@34003",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@34003",
       "displayName": "",
       "id": "34003",
       "name": "Target.mesh",
@@ -24,7 +24,7 @@
     },
     "40690": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@40690",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@40690",
       "displayName": "",
       "id": "40690",
       "name": "Starting_point_L_ON.mesh",
@@ -41,7 +41,7 @@
     },
     "55341": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@55341",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@55341",
       "displayName": "",
       "id": "55341",
       "name": "Starting_endpoint_L_OFF.mesh",
@@ -58,7 +58,7 @@
     },
     "f8762": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@f8762",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@f8762",
       "displayName": "",
       "id": "f8762",
       "name": "Ice_cubes.mesh",
@@ -75,7 +75,7 @@
     },
     "4bb92": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@4bb92",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@4bb92",
       "displayName": "",
       "id": "4bb92",
       "name": "Game_track.mesh",
@@ -92,7 +92,7 @@
     },
     "08eb1": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@08eb1",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@08eb1",
       "displayName": "",
       "id": "08eb1",
       "name": "Obstacle_A_01.mesh",
@@ -109,7 +109,7 @@
     },
     "dffce": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@dffce",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@dffce",
       "displayName": "",
       "id": "dffce",
       "name": "Obstacle_A_02.mesh",
@@ -126,7 +126,7 @@
     },
     "8f4b7": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@8f4b7",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@8f4b7",
       "displayName": "",
       "id": "8f4b7",
       "name": "Light_track.mesh",
@@ -143,7 +143,7 @@
     },
     "b1f22": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@b1f22",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@b1f22",
       "displayName": "",
       "id": "b1f22",
       "name": "Starting_point.mesh",
@@ -160,7 +160,7 @@
     },
     "a9617": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@a9617",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@a9617",
       "displayName": "",
       "id": "a9617",
       "name": "Starting_contacts.mesh",
@@ -177,7 +177,7 @@
     },
     "5ca38": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@5ca38",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@5ca38",
       "displayName": "",
       "id": "5ca38",
       "name": "Starting_endpoint_L_ON.mesh",
@@ -194,7 +194,7 @@
     },
     "b2c86": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@b2c86",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@b2c86",
       "displayName": "",
       "id": "b2c86",
       "name": "Starting_endpoint_R_OFF.mesh",
@@ -211,7 +211,7 @@
     },
     "81cae": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@81cae",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@81cae",
       "displayName": "",
       "id": "81cae",
       "name": "Starting_endpoint_R_ON.mesh",
@@ -228,7 +228,7 @@
     },
     "2483b": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@2483b",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@2483b",
       "displayName": "",
       "id": "2483b",
       "name": "Starting_point_R_ON.mesh",
@@ -245,7 +245,7 @@
     },
     "d937c": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@d937c",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@d937c",
       "displayName": "",
       "id": "d937c",
       "name": "Starting_point_R_OFF.mesh",
@@ -262,7 +262,7 @@
     },
     "426c1": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@426c1",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@426c1",
       "displayName": "",
       "id": "426c1",
       "name": "Starting_point_L_OFF.mesh",
@@ -279,7 +279,7 @@
     },
     "e2b36": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@e2b36",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@e2b36",
       "displayName": "",
       "id": "e2b36",
       "name": "TV.mesh",
@@ -296,7 +296,7 @@
     },
     "e200a": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@e200a",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@e200a",
       "displayName": "",
       "id": "e200a",
       "name": "Snow_Road.mesh",
@@ -313,7 +313,7 @@
     },
     "680a5": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@680a5",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@680a5",
       "displayName": "",
       "id": "680a5",
       "name": "Vision.mesh",
@@ -330,7 +330,7 @@
     },
     "01dee": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@01dee",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@01dee",
       "displayName": "",
       "id": "01dee",
       "name": "Snow_Cover_A_01.mesh",
@@ -347,7 +347,7 @@
     },
     "f6b0e": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@f6b0e",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@f6b0e",
       "displayName": "",
       "id": "f6b0e",
       "name": "Bushes_Low_A.mesh",
@@ -364,7 +364,7 @@
     },
     "930fc": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@930fc",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@930fc",
       "displayName": "",
       "id": "930fc",
       "name": "Bushes_High_A.mesh",
@@ -381,7 +381,7 @@
     },
     "adf27": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@adf27",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@adf27",
       "displayName": "",
       "id": "adf27",
       "name": "Rock_Medium_A_01.mesh",
@@ -398,7 +398,7 @@
     },
     "aabd4": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@aabd4",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@aabd4",
       "displayName": "",
       "id": "aabd4",
       "name": "Rock_Medium_A_02.mesh",
@@ -415,7 +415,7 @@
     },
     "c414b": {
       "importer": "gltf-mesh",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@c414b",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@c414b",
       "displayName": "",
       "id": "c414b",
       "name": "Banyan_Tree.mesh",
@@ -430,9 +430,43 @@
       ],
       "subMetas": {}
     },
+    "43c71": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@43c71",
+      "displayName": "",
+      "id": "43c71",
+      "name": "file1.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "b896e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@b896e",
+      "displayName": "",
+      "id": "b896e",
+      "name": "file6.image",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
     "dfe29": {
       "importer": "gltf-embeded-image",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@dfe29",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@dfe29",
       "displayName": "",
       "id": "dfe29",
       "name": "file3.image",
@@ -449,7 +483,7 @@
     },
     "612f0": {
       "importer": "gltf-embeded-image",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@612f0",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@612f0",
       "displayName": "",
       "id": "612f0",
       "name": "file4.image",
@@ -466,7 +500,7 @@
     },
     "39d6e": {
       "importer": "gltf-embeded-image",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@39d6e",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@39d6e",
       "displayName": "",
       "id": "39d6e",
       "name": "file5.image",
@@ -483,7 +517,7 @@
     },
     "92fdb": {
       "importer": "gltf-embeded-image",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@92fdb",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@92fdb",
       "displayName": "",
       "id": "92fdb",
       "name": "AM113_028_Picea_Color_1.image",
@@ -500,7 +534,7 @@
     },
     "d20e9": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@d20e9",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@d20e9",
       "displayName": "",
       "id": "d20e9",
       "name": "file1.texture",
@@ -511,8 +545,8 @@
         "magfilter": "linear",
         "mipfilter": "none",
         "anisotropy": 0,
-        "isUuid": false,
-        "imageUuidOrDatabaseUri": "db://assets/resources/Ice_cubes/textures/Ski Project D.png"
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@43c71"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -523,7 +557,7 @@
     },
     "5189c": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@5189c",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@5189c",
       "displayName": "",
       "id": "5189c",
       "name": "file6.texture",
@@ -534,8 +568,8 @@
         "magfilter": "linear",
         "mipfilter": "none",
         "anisotropy": 0,
-        "isUuid": false,
-        "imageUuidOrDatabaseUri": "db://assets/resources/Ice_cubes/textures/Ski Project D.png"
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@b896e"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -546,7 +580,7 @@
     },
     "a562b": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@a562b",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@a562b",
       "displayName": "",
       "id": "a562b",
       "name": "file3.texture",
@@ -558,7 +592,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "e6320147-ef0d-4398-a6a4-320f186b7788@dfe29"
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@dfe29"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -569,7 +603,7 @@
     },
     "91dcf": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@91dcf",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@91dcf",
       "displayName": "",
       "id": "91dcf",
       "name": "file4.texture",
@@ -581,7 +615,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "e6320147-ef0d-4398-a6a4-320f186b7788@612f0"
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@612f0"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -592,7 +626,7 @@
     },
     "583b7": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@583b7",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@583b7",
       "displayName": "",
       "id": "583b7",
       "name": "file5.texture",
@@ -604,7 +638,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "e6320147-ef0d-4398-a6a4-320f186b7788@39d6e"
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@39d6e"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -615,7 +649,7 @@
     },
     "38cb9": {
       "importer": "texture",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@38cb9",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@38cb9",
       "displayName": "",
       "id": "38cb9",
       "name": "AM113_028_Picea_Color_1.texture",
@@ -627,7 +661,7 @@
         "mipfilter": "none",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "e6320147-ef0d-4398-a6a4-320f186b7788@92fdb"
+        "imageUuidOrDatabaseUri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@92fdb"
       },
       "ver": "1.0.22",
       "imported": true,
@@ -638,7 +672,7 @@
     },
     "7f1b6": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@7f1b6",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@7f1b6",
       "displayName": "",
       "id": "7f1b6",
       "name": "Topography_D.material",
@@ -654,7 +688,7 @@
     },
     "e77fd": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@e77fd",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@e77fd",
       "displayName": "",
       "id": "e77fd",
       "name": "Starting_endpoint_ON_OFF.material",
@@ -670,7 +704,7 @@
     },
     "5735a": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@5735a",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@5735a",
       "displayName": "",
       "id": "5735a",
       "name": "Snow_Cover_D.material",
@@ -686,7 +720,7 @@
     },
     "f2b60": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@f2b60",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@f2b60",
       "displayName": "",
       "id": "f2b60",
       "name": "T_Grass_D.material",
@@ -702,7 +736,7 @@
     },
     "6aa44": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@6aa44",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@6aa44",
       "displayName": "",
       "id": "6aa44",
       "name": "Rock_Medium_D.material",
@@ -718,7 +752,7 @@
     },
     "c990f": {
       "importer": "gltf-material",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@c990f",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@c990f",
       "displayName": "",
       "id": "c990f",
       "name": "Banyan_Tree_D.material",
@@ -732,12 +766,12 @@
       ],
       "subMetas": {}
     },
-    "8a2c2": {
+    "80d7b": {
       "importer": "gltf-scene",
-      "uuid": "e6320147-ef0d-4398-a6a4-320f186b7788@8a2c2",
+      "uuid": "9b180f06-3338-4b6c-87a5-b4c62edbda40@80d7b",
       "displayName": "",
-      "id": "8a2c2",
-      "name": "Ski Project2.prefab",
+      "id": "80d7b",
+      "name": "Ski Project(1).prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -753,27 +787,27 @@
     "imageMetas": [
       {
         "name": "file1",
-        "uri": "db://assets/resources/Ice_cubes/textures/Ski Project D.png"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@43c71"
       },
       {
         "name": "file6",
-        "uri": "db://assets/resources/Ice_cubes/textures/Ski Project D.png"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@b896e"
       },
       {
         "name": "file3",
-        "uri": "e6320147-ef0d-4398-a6a4-320f186b7788@dfe29"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@dfe29"
       },
       {
         "name": "file4",
-        "uri": "e6320147-ef0d-4398-a6a4-320f186b7788@612f0"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@612f0"
       },
       {
         "name": "file5",
-        "uri": "e6320147-ef0d-4398-a6a4-320f186b7788@39d6e"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@39d6e"
       },
       {
         "name": "AM113_028_Picea_Color_1",
-        "uri": "e6320147-ef0d-4398-a6a4-320f186b7788@92fdb"
+        "uri": "9b180f06-3338-4b6c-87a5-b4c62edbda40@92fdb"
       }
     ],
     "legacyFbxImporter": false,
@@ -781,117 +815,55 @@
     "fbx": {
       "smartMaterialEnabled": true
     },
-    "redirect": "e6320147-ef0d-4398-a6a4-320f186b7788@8a2c2",
+    "redirect": "9b180f06-3338-4b6c-87a5-b4c62edbda40@80d7b",
     "assetFinder": {
       "meshes": [
-        "e6320147-ef0d-4398-a6a4-320f186b7788@f8762",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@4bb92",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@08eb1",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@dffce",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@8f4b7",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@b1f22",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@a9617",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@34003",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@5ca38",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@55341",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@b2c86",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@81cae",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@2483b",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@d937c",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@40690",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@426c1",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@e2b36",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@e200a",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@680a5",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@01dee",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@f6b0e",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@930fc",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@adf27",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@aabd4",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@c414b"
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@f8762",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@4bb92",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@08eb1",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@dffce",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@8f4b7",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@b1f22",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@a9617",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@34003",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@5ca38",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@55341",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@b2c86",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@81cae",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@2483b",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@d937c",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@40690",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@426c1",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@e2b36",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@e200a",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@680a5",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@01dee",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@f6b0e",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@930fc",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@adf27",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@aabd4",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@c414b"
       ],
       "skeletons": [],
       "textures": [
-        "e6320147-ef0d-4398-a6a4-320f186b7788@d20e9",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@5189c",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@a562b",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@91dcf",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@583b7",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@38cb9"
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@d20e9",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@5189c",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@a562b",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@91dcf",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@583b7",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@38cb9"
       ],
       "materials": [
-        "e6320147-ef0d-4398-a6a4-320f186b7788@7f1b6",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@e77fd",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@5735a",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@f2b60",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@6aa44",
-        "e6320147-ef0d-4398-a6a4-320f186b7788@c990f"
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@7f1b6",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@e77fd",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@5735a",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@f2b60",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@6aa44",
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@c990f"
       ],
       "scenes": [
-        "e6320147-ef0d-4398-a6a4-320f186b7788@8a2c2"
+        "9b180f06-3338-4b6c-87a5-b4c62edbda40@80d7b"
       ]
-    },
-    "materials": {
-      "e6320147-ef0d-4398-a6a4-320f186b7788@e77fd": {
-        "__type__": "cc.Material",
-        "_name": "",
-        "_objFlags": 0,
-        "_native": "",
-        "_effectAsset": {
-          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
-          "__expectedType__": "cc.EffectAsset"
-        },
-        "_techIdx": 0,
-        "_defines": [
-          {
-            "DCC_APP_NAME": 1,
-            "USE_ALBEDO_MAP": true
-          },
-          {},
-          {}
-        ],
-        "_states": [
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          },
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          },
-          {
-            "rasterizerState": {},
-            "depthStencilState": {},
-            "blendState": {
-              "targets": [
-                {}
-              ]
-            }
-          }
-        ],
-        "_props": [
-          {
-            "mainTexture": {
-              "__uuid__": "ef8b99b3-95c0-4aab-8ca2-3c6b3a420694@6c48a",
-              "__expectedType__": "cc.Texture2D"
-            },
-            "albedoScale": 0.800000011920929,
-            "transparencyFactor": 0
-          },
-          {},
-          {}
-        ]
-      }
     }
   }
 }
