@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "5e2428b4-5fd3-4859-b478-ef46b6c701e6",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/common/DataController.js",
+    "simulateGlobals": []
+  }
+}

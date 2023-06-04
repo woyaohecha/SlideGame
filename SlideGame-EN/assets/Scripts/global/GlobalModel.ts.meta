@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "9b501fe4-51f9-4737-b8ab-4f114ef91183",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/global/GlobalModel.js",
+    "simulateGlobals": []
+  }
+}

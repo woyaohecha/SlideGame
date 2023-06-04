@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "410c77c3-a122-4d2e-aaa8-c279a8a658a1",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/common/DialogController.js",
+    "simulateGlobals": []
+  }
+}

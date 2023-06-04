@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "b5e54019-c3fa-4142-baf3-a06f4b60e813",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/load/LoadUI.js",
+    "simulateGlobals": []
+  }
+}

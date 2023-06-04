@@ -1,0 +1,47 @@
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "c26fef15-bd2f-4b36-b5fd-b4e10ad85deb",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "c26fef15-bd2f-4b36-b5fd-b4e10ad85deb@6c48a",
+      "displayName": "sea_texture",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c26fef15-bd2f-4b36-b5fd-b4e10ad85deb",
+        "visible": true
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "c26fef15-bd2f-4b36-b5fd-b4e10ad85deb@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true,
+      "presetId": "presetId1679370079743"
+    },
+    "fixAlphaTransparencyArtifacts": false,
+    "hasAlpha": true
+  }
+}

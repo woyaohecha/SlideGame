@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "f7c8d412-4a7d-491d-b474-bd0e36af489c",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/game/GameContract.js",
+    "simulateGlobals": []
+  }
+}

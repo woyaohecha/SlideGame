@@ -1,0 +1,101 @@
+[
+    {
+        "musicName": "positions",
+        "duration": "02:52",
+        "slideGoals": "90 次",
+        "EstimatedCalories": "23Kcal",
+        "difficulty": 2,
+        "bpm": 144,
+        "gameConditions": "节奏滑行完成度大于 80%"
+    },
+    {
+        "musicName": "Shut up and Dance",
+        "duration": "03:17",
+        "slideGoals": "123 次",
+        "EstimatedCalories": "29Kcal",
+        "difficulty": 3,
+        "bpm": 128,
+        "gameConditions": "节奏滑行完成度大于 80%"
+    },
+    {
+        "musicName": "All About That Bass",
+        "duration": "03:07",
+        "slideGoals": "128 次",
+        "EstimatedCalories": "31Kcal",
+        "difficulty": 4,
+        "bpm": 134,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "I Can",
+        "duration": "04:14",
+        "slideGoals": "131 次",
+        "EstimatedCalories": "35Kcal",
+        "difficulty": 3,
+        "bpm": 95,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "Tabata Wod",
+        "duration": "04:03",
+        "slideGoals": "98 次",
+        "EstimatedCalories": "24Kcal",
+        "difficulty": 2,
+        "bpm": 96,
+        "gameConditions": "节奏滑行完成度大于 90%"
+    },
+    {
+        "musicName": "Right Now",
+        "duration": "03:02",
+        "slideGoals": "96 次",
+        "EstimatedCalories": "21Kcal",
+        "difficulty": 3,
+        "bpm": 130,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "Vacation",
+        "duration": "03:36",
+        "slideGoals": "129 次",
+        "EstimatedCalories": "31Kcal",
+        "difficulty": 3,
+        "bpm": 127,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "Domino",
+        "duration": "03:53",
+        "slideGoals": "136 次",
+        "EstimatedCalories": "37Kcal",
+        "difficulty": 4,
+        "bpm": 127,
+        "gameConditions": "节奏滑行完成度大于 85%"
+    },
+    {
+        "musicName": "Pound The Alarm",
+        "duration": "03:25",
+        "slideGoals": "129 次",
+        "EstimatedCalories": "35Kcal",
+        "difficulty": 4,
+        "bpm": 125,
+        "gameConditions": "节奏滑行完成度大于 90%"
+    },
+    {
+        "musicName": "LaserLight",
+        "duration": "03:31",
+        "slideGoals": "127 次",
+        "EstimatedCalories": "33Kcal",
+        "difficulty": 4,
+        "bpm": 128,
+        "gameConditions": "节奏滑行完成度大于 90%"
+    },
+    {
+        "musicName": "Stuttering",
+        "duration": "03:09",
+        "slideGoals": "110 次",
+        "EstimatedCalories": "28Kcal",
+        "difficulty": 5,
+        "bpm": 88,
+        "gameConditions": "节奏滑行完成度大于 95%"
+    }
+]

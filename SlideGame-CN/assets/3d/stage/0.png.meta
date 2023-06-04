@@ -1,0 +1,47 @@
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "c10f0001-70a2-43be-a890-fcb4aa97a5cd",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "c10f0001-70a2-43be-a890-fcb4aa97a5cd@6c48a",
+      "displayName": "0",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c10f0001-70a2-43be-a890-fcb4aa97a5cd",
+        "visible": true
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "c10f0001-70a2-43be-a890-fcb4aa97a5cd@6c48a",
+    "compressSettings": {
+      "useCompressTexture": true,
+      "presetId": "presetId1679370079743"
+    },
+    "fixAlphaTransparencyArtifacts": false,
+    "hasAlpha": true
+  }
+}

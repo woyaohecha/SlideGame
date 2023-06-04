@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "87bdfdda-2bc5-4f41-9e6a-a70d0cc060a3",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/common/SoundController.js",
+    "simulateGlobals": []
+  }
+}

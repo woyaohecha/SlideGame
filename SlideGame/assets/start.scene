@@ -2756,7 +2756,7 @@
       "__expectedType__": "cc.Prefab"
     },
     "musicListConfig": {
-      "__uuid__": "a3f3c0f3-2a72-4aa0-86ec-e9d5057da8b2",
+      "__uuid__": "b4563413-3f11-41f5-ac93-545622f04c17",
       "__expectedType__": "cc.JsonAsset"
     },
     "musicInfoPanel": {
@@ -9971,7 +9971,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 473.44467640918583,
+    "_orthoHeight": 415.18600368324127,
     "_near": 1,
     "_far": 2000,
     "_color": {

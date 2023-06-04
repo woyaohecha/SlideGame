@@ -1,0 +1,12 @@
+{
+  "ver": "4.0.23",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "610009cb-57d0-4e67-955d-4d65b8ca958f",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "moduleId": "project:///assets/JavaScripts/game/GamePresenter.js",
+    "simulateGlobals": []
+  }
+}

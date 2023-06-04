@@ -21,7 +21,10 @@ export class MusicList extends Component {
     rankScrollView: RankScrollView = null;
 
     musicList: Node;
-    musicListInfo: object;
+    musicListInfo: any;
+    idleTopIndex: number;
+    idleBottomIndex: number;
+    currentIndex: number = 0;
 
     onLoad() {
         this.musicList = this.node.getChildByName("MusicList");
@@ -36,6 +39,7 @@ export class MusicList extends Component {
         this.initList();
     }
 
+    //初始化圆盘,一共8个位置
     initList() {
         let musicItem: Node;
         for (let i = 0; i < 8; i++) {
@@ -48,8 +52,6 @@ export class MusicList extends Component {
                 case 0:
                     pos = v3(temp, temp);
                     musicItem.getChildByName("Checked").active = true;
-                    GlobalModel.getInstances().setSelectlevel(0);
-                    // this.node.parent.getComponent(StartUI).MusicEvent();
                     break;
                 case 1:
                     pos = v3(0, radius);
@@ -73,25 +75,31 @@ export class MusicList extends Component {
                     pos = v3(radius, 0);
                     break;
             }
-            this.setMusicItem(musicItem, i);
+            if (i < 3) {
+                this.setMusicItem(musicItem, i);
+            }
+            if (i > 5) {
+                this.setMusicItem(musicItem, i + (this.musicListInfo.length - 8));
+            }
             musicItem.setPosition(pos);
             this.musicList.addChild(musicItem);
         }
-        this.setMusicInfoPanel(0);
+        this.idleTopIndex = 2;
+        this.idleBottomIndex = 6;
+        this.currentIndex = 0;
+        this.setMusicInfoPanel();
         this.rankScrollView.UpDateRank();
 
     }
 
-    setMusicItem(musicItem: Node, index: number) {
-        let image: Sprite = musicItem.getChildByName("Image").getChildByName("Mask").children[0].getComponent(Sprite);
-        let Locked: Node = musicItem.getChildByName("Locked");
-        let name: Label = musicItem.getChildByName("Desc").getChildByName("Name").getComponent(Label);
-        let Time: Label = musicItem.getChildByName("Desc").getChildByName("Time").getComponent(Label);
-        let star: Label = musicItem.getChildByName("Desc").getChildByName("Star").getComponent(Label);
+    setMusicItem(panelItem: Node, musicIndex: number) {
+        let image: Sprite = panelItem.getChildByName("Image").getChildByName("Mask").children[0].getComponent(Sprite);
+        let Locked: Node = panelItem.getChildByName("Locked");
+        let name: Label = panelItem.getChildByName("Desc").getChildByName("Name").getComponent(Label);
+        let Time: Label = panelItem.getChildByName("Desc").getChildByName("Time").getComponent(Label);
+        let star: Label = panelItem.getChildByName("Desc").getChildByName("Star").getComponent(Label);
 
-
-
-        resources.load("musicItemImages/image_" + index + "/spriteFrame", SpriteFrame, (e, asset) => {
+        resources.load("musicItemImages/image_" + musicIndex + "/spriteFrame", SpriteFrame, (e, asset) => {
             if (e) {
                 console.log(e);
                 return;
@@ -99,13 +107,13 @@ export class MusicList extends Component {
             image.spriteFrame = asset;
 
         })
-        Locked.active = !Boolean(HttpUnit.levelLockedInfo[index]);
-        name.string = this.musicListInfo[index].musicName;
-        Time.string = this.musicListInfo[index].duration;
-        star.string = "x" + this.musicListInfo[index].difficulty;
+        Locked.active = !Boolean(HttpUnit.levelLockedInfo[musicIndex]);
+        name.string = this.musicListInfo[musicIndex].musicName;
+        Time.string = this.musicListInfo[musicIndex].duration;
+        star.string = "x" + this.musicListInfo[musicIndex].difficulty;
     }
 
-    setMusicInfoPanel(index) {
+    setMusicInfoPanel() {
         let namePanel: Label = this.musicInfoPanel.getChildByName("Name").getComponent(Label);
         let TimePanel: Label = this.musicInfoPanel.getChildByName("Time").getComponent(Label);
         let targetPanel: Label = this.musicInfoPanel.getChildByName("Target").getComponent(Label);
@@ -114,13 +122,14 @@ export class MusicList extends Component {
         let bpm: Label = this.musicInfoPanel.getChildByName("Difficulty").getChildByName("Bpm").getComponent(Label);
         let passPanel: Label = this.musicInfoPanel.getChildByName("Pass").getComponent(Label);
 
-        namePanel.string = this.musicListInfo[index].musicName;
-        TimePanel.string = "Duration：" + this.musicListInfo[index].duration;
-        targetPanel.string = "Slide Goals：" + this.musicListInfo[index].slideGoals;
-        costPanel.string = "Estimated Calories：" + this.musicListInfo[index].EstimatedCalories;
-        starNum.string = "x" + this.musicListInfo[index].difficulty;
-        bpm.string = "BPM：" + this.musicListInfo[index].bpm;
-        passPanel.string = "Game Conditions：" + this.musicListInfo[index].gameConditions;
+        namePanel.string = this.musicListInfo[this.currentIndex].musicName;
+        TimePanel.string = "Duration：" + this.musicListInfo[this.currentIndex].duration;
+        targetPanel.string = "Slide Goals：" + this.musicListInfo[this.currentIndex].slideGoals;
+        costPanel.string = "Estimated Calories：" + this.musicListInfo[this.currentIndex].EstimatedCalories;
+        starNum.string = "x" + this.musicListInfo[this.currentIndex].difficulty;
+        bpm.string = "BPM：" + this.musicListInfo[this.currentIndex].bpm;
+        passPanel.string = "Game Conditions：" + this.musicListInfo[this.currentIndex].gameConditions;
+        GlobalModel.getInstances().setSelectlevel(this.currentIndex);
     }
 
     startPos: Vec2;
@@ -128,84 +137,61 @@ export class MusicList extends Component {
         this.startPos = e.getLocation();
     }
 
+    tweenCallBack(index) {
+        let pos = this.musicList.children[index].position;
+        if (pos.x > 0 && pos.y > 0) {
+            GlobalModel.getInstances().setSelectlevel(this.currentIndex);
+            this.musicList.children[index].getChildByName("Checked").active = true;
+            this.setMusicInfoPanel();
+            this.node.parent.getComponent(StartUI).MusicEvent();
+        } else {
+            this.musicList.children[index].getChildByName("Checked").active = false;
+        }
+        this.rankScrollView.UpDateRank();
+    }
+
     onTouchEnd(e: EventTouch) {
         let len = e.getLocation().y - this.startPos.y;
         if (Math.abs(len) < 100) {
             return;
         }
-
         if (len > 0) {
             let firstPos = new Vec3(this.musicList.children[0].position);
+            this.currentIndex = this.currentIndex - 1 < 0 ? this.musicListInfo.length - 1 : this.currentIndex - 1;
+
             for (let i = 0; i < this.musicList.children.length; i++) {
-                let songIndex = i > 4 ? 4 : i;
                 if (i == 7) {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: firstPos })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.setMusicInfoPanel(i);
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
-                            this.rankScrollView.UpDateRank();
+                            this.tweenCallBack(i);
                         })
                         .start();
                 } else {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: this.musicList.children[i + 1].position })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
-                            this.rankScrollView.UpDateRank();
+                            this.tweenCallBack(i);
                         })
                         .start();
                 }
             }
         } else {
             let lastPos = new Vec3(this.musicList.children[this.musicList.children.length - 1].position);
+            this.currentIndex = this.currentIndex + 1 > this.musicListInfo.length - 1 ? 0 : this.currentIndex + 1;
             for (let i = this.musicList.children.length - 1; i >= 0; i--) {
-                let songIndex = i > 4 ? 4 : i;
                 if (i == 0) {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: lastPos })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
-                            this.rankScrollView.UpDateRank();
+                            this.tweenCallBack(i);
                         })
                         .start();
                 } else {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: this.musicList.children[i - 1].position })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
-                            this.rankScrollView.UpDateRank();
+                            this.tweenCallBack(i);
                         })
                         .start();
                 }
@@ -216,78 +202,48 @@ export class MusicList extends Component {
     clickChangeMusic(e: EventTouch) {
         if (e.currentTarget.position.y == 0) {
             let firstPos = new Vec3(this.musicList.children[0].position);
+            this.currentIndex = this.currentIndex + 1 > this.musicListInfo.length - 1 ? 0 : this.currentIndex + 1;
             for (let i = 0; i < this.musicList.children.length; i++) {
-                let songIndex = i > 4 ? 4 : i;
                 if (i == 7) {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: firstPos })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.setMusicInfoPanel(i);
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
+                            this.tweenCallBack(i);
                         })
                         .start();
                 } else {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: this.musicList.children[i + 1].position })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
+                            this.tweenCallBack(i);
                         })
                         .start();
                 }
             }
         } else if (e.currentTarget.position.y == this.musicList.getComponent(UITransform).width / 2) {
             let lastPos = new Vec3(this.musicList.children[this.musicList.children.length - 1].position);
+            this.currentIndex = this.currentIndex - 1 < 0 ? this.musicListInfo.length - 1 : this.currentIndex - 1;
             for (let i = this.musicList.children.length - 1; i >= 0; i--) {
-                let songIndex = i > 4 ? 4 : i;
                 if (i == 0) {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: lastPos })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
+                            this.tweenCallBack(i);
                         })
                         .start();
                 } else {
                     tween(this.musicList.children[i])
                         .to(0.1, { position: this.musicList.children[i - 1].position })
                         .call(() => {
-                            let pos = this.musicList.children[i].position;
-                            if (pos.x > 0 && pos.y > 0) {
-                                this.setMusicInfoPanel(i);
-                                GlobalModel.getInstances().setSelectlevel(songIndex);
-                                this.musicList.children[i].getChildByName("Checked").active = true;
-                                this.node.parent.getComponent(StartUI).MusicEvent();
-                            } else {
-                                this.musicList.children[i].getChildByName("Checked").active = false;
-                            }
+                            this.tweenCallBack(i);
                         })
                         .start();
                 }
             }
         }
     }
+
+
 
 
 

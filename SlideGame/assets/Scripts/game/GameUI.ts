@@ -133,9 +133,6 @@ export class GameUI extends Component implements IGameUI {
     @property({ type: Prefab })
     sea3: Prefab = null;
 
-    @property({ type: Prefab })
-    treadEffect: Prefab = null;
-
     @property(Node)
     leftHit: Node = null;
     @property(Node)
