@@ -44,7 +44,10 @@ export class GameData {
      */
     public static loadMusic(musicIndex: number, callback?: Function) {
         if (this.currentMusic && this.currentMusicIndex == musicIndex) {
-            callback(this.currentMusic);
+            console.log("当前加载音乐为：", this.currentMusicName);
+            if (callback) {
+                callback(this.currentMusic);
+            }
             return;
         }
         this.currentMusicIndex = musicIndex;
@@ -56,6 +59,7 @@ export class GameData {
             this.currentMusic = asset;
             this.currentMusicName = this.musicListConfig[musicIndex].musicName;
             this.currentMusicTime = this.currentMusic.getDuration();
+            console.log("当前加载音乐为：", this.currentMusicName);
             if (callback) {
                 callback(this.currentMusic);
             }

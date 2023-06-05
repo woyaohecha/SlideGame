@@ -152,8 +152,8 @@ export class GameUI extends Component implements IGameUI {
         //     // self.OnContinueBtn();
         // });
 
-        bridge.register("notifySlide", (code) => {
-            self.notifySlide(code);
+        bridge.register("notifySlide", () => {
+            self.notifySlide();
         })
 
         bridge.register("disconnect", (code) => {
@@ -1002,18 +1002,7 @@ export class GameUI extends Component implements IGameUI {
         this.showPassUI();
     }
 
-    notifySlide(code?) {
-        console.error("原生消息:" + code);
-
-        console.error("--------------------------------");
-        console.log("当前播放音乐：", GameData.currentMusicName);
-        console.log("当前音频状态：", this.audioSource.state);
-        console.log("是否正在播放：", this.audioSource.playing);
-        console.log("当前音频时间：", this.audioSource.currentTime);
-        console.log("我的计时器：", this.TimeLabel.string);
-        if (code) {
-        }
-        let nextZ: number = this.mGamePresenter.mGameModel.getNextStageZ();
+    notifySlide() {
         let index: number = this.mGamePresenter.getPlayerStageIndex();
         let stageNode: Node = this.stageArr[index];
         let distance: number = Math.abs(this.zPos - stageNode.position.z);
