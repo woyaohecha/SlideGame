@@ -9276,7 +9276,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 431.09263157894736,
+    "_orthoHeight": 716.1473684210526,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -9743,7 +9743,7 @@
     "_enabled": true,
     "__prefab": null,
     "_clip": {
-      "__uuid__": "15bd4bc3-37e5-4c1a-81eb-9c7d38602133",
+      "__uuid__": "c49fe665-05dd-49fe-acef-f7c689e415c3",
       "__expectedType__": "cc.AudioClip"
     },
     "_loop": false,

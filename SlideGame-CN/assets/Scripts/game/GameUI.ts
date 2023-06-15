@@ -9,7 +9,7 @@
  * Copyright (c) 2023 by 林武, All Rights Reserved. 
  */
 
-import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math, profiler, animation, SkeletalAnimation, CurveRange, easing, debug } from 'cc';
+import { _decorator, Component, Node, instantiate, Vec2, Vec3, AudioClip, loader, JsonAsset, Prefab, EventTouch, tween, AudioSourceComponent, director, Input, input, EventKeyboard, EventMouse, Label, game, Game, ProgressBar, AudioSource, ParticleSystem, v3, CCObject, Size, view, math, profiler, animation, SkeletalAnimation, CurveRange, easing, debug, FogInfo, SkyboxInfo } from 'cc';
 import { IGameUI } from './GameContract';
 import { GamePresenter } from './GamePresenter';
 import { GlobalModel } from '../global/GlobalModel';
@@ -153,7 +153,13 @@ export class GameUI extends Component implements IGameUI {
         // });
 
         bridge.register("notifySlide", () => {
-            self.notifySlide();
+            let DateTime = new Date();
+            let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
+            console.error("收到native消息:" + Time);
+            if (GameData.mode == 0 || GameData.mode == 1) {
+                self.notifySlide();
+            }
+            // self.notifySlide();
         })
 
         bridge.register("disconnect", (code) => {
@@ -231,6 +237,19 @@ export class GameUI extends Component implements IGameUI {
         this.S_PerfectNode.setPosition(this.missPos);
         this.MissNode.setPosition(this.missPos);
         this.ComboNode.setPosition(this.comboPos);
+
+        switch (GameData.mode) {
+            case 1:
+            case 3:
+                this.snow.node.active = false;
+                this.node.scene.globals.fog.enabled = false;
+                break;
+            case 4:
+                this.snow.node.active = false;
+                this.node.scene.globals.fog.enabled = false;
+                this.node.parent.parent.getChildByName("gamePanel").active = false;
+                break;
+        }
     }
 
     /**
@@ -286,27 +305,15 @@ export class GameUI extends Component implements IGameUI {
 
     //
     initEvent(): void {
-        // this.node.on(Node.EventType.TOUCH_START, this.touchStartEvent, this);
-        // this.node.on(Node.EventType.TOUCH_MOVE, this.touchMoveEvent, this);
-        // this.node.on(Node.EventType.TOUCH_END, this.touchEndEvent, this);
-
         input.on(Input.EventType.KEY_DOWN, (eve: EventKeyboard) => {
-            // console.log(eve.keyCode);
-
-            this.notifySlide();
-
-            // let PosArr = [-1, 1];
-            // switch (eve.keyCode) {
-            //     case 65:
-            //         this.xPos = PosArr[0];
-            //         break;
-            //     case 68:
-            //         this.xPos = PosArr[1];
-            //         break;
-            //     default:
-            //         break;
-            // }
+            let DateTime = new Date();
+            let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
+            console.error("收到input消息:" + Time);
+            if (GameData.mode == 0 || GameData.mode == 1 || GameData.mode == 5) {
+                this.notifySlide();
+            }
         }, this);
+
     }
 
     //
@@ -1014,9 +1021,9 @@ export class GameUI extends Component implements IGameUI {
             this.xPos = 0;
         }
 
-        let DateTime = new Date();
-        let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
-        console.error("收到消息:" + Time);
+        // let DateTime = new Date();
+        // let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
+        // console.error("收到消息:" + Time);
     }
 
     setSnow() {
@@ -1038,7 +1045,9 @@ export class GameUI extends Component implements IGameUI {
                 default:
                     value.constant = 200;
             }
-            this.snow.rateOverTime = value;
+            if (this.snow.enabled) {
+                this.snow.rateOverTime = value;
+            }
         }
 
 

@@ -4,6 +4,7 @@ const { ccclass, property } = _decorator;
 @ccclass('GameData')
 export class GameData {
 
+    public static mode: number = 0;//0正常 1只接收  2不校验
     private static isEN: boolean = false;
     public static musicListConfig: any = null;   //首页歌曲配置表
     public static currentMusic: AudioClip = null;   //当前播放的歌曲

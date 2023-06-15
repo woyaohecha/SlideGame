@@ -55,31 +55,55 @@ export class Home extends Component {
 
     btnStartGameEvent(): void {
         var self = this;
-        console.log("开始游戏 com.fed.game.start 存在方法:", bridge.hasNativeMethod("com.fed.game.start"));
-        if (bridge.hasNativeMethod("com.fed.game.start")) {
-            bridge.call("com.fed.game.start", null, function (ret) {
-                console.log("开始游戏 com.fed.game.start 收到消息:", JSON.stringify(ret));
-                if (JSON.stringify(ret)) {
-                    self.loadLayer.active = true;
-                    self.audioSource.stop();
-                    self.audioSource = null;
-                    GameData.loadMusicConfig(() => {
-                        director.preloadScene("game", () => {
-                            director.loadScene("game");
-                        });
-                    })
-                }
-            })
+        switch (GameData.mode) {
+            case 0:
+                console.log("当前模式为：正常模式---正常接收原生指令,并执行游戏动作，效果全开");
+                break;
+            case 1:
+                console.log("当前模式为：关闭效果---正常接收原生指令,并执行游戏动作,关闭粒子和雾");
+                break;
+            case 2:
+                console.log("当前模式为：接收+不执行+正常效果---正常接收原生指令，不执行游戏动作，正常显示粒子和雾");
+                break;
+            case 3:
+                console.log("当前模式为：接收+不执行+关闭效果---正常接收原生指令，不执行游戏动作，同时关闭场景特效（粒子，雾等");
+                break;
+            case 4:
+                console.log("当前模式为：接收+不执行+关闭全部---正常接收原生指令，不执行游戏动作，同时关闭全部场景模型及特效（粒子，雾等");
+                break;
+            case 5:
+                console.log("当前模式为：接收键盘指令+打开全部---不接收原生指令，只接收input(键盘)输入，执行游戏动作，打开全部场景模型及特效（粒子，雾等");
+                break;
         }
 
-        // self.loadLayer.active = true;
-        // self.audioSource.stop();
-        // self.audioSource = null;
-        // GameData.loadMusicConfig(() => {
-        //     director.preloadScene("game", () => {
-        //         director.loadScene("game");
-        //     });
-        // })
+        // console.log("开始游戏 com.fed.game.start 存在方法:", bridge.hasNativeMethod("com.fed.game.start"));
+        // if (bridge.hasNativeMethod("com.fed.game.start")) {
+        //     bridge.call("com.fed.game.start", null, function (ret) {
+        //         console.log("开始游戏 com.fed.game.start 收到消息:", JSON.stringify(ret));
+        //         if (JSON.stringify(ret)) {
+        //             self.loadLayer.active = true;
+        //             self.audioSource.stop();
+        //             self.audioSource = null;
+        //             GameData.loadMusicConfig(() => {
+        //                 director.preloadScene("game", () => {
+        //                     director.loadScene("game");
+        //                 });
+        //             })
+        //         }
+        //     })
+        // }
+
+        self.loadLayer.active = true;
+        self.audioSource.stop();
+        self.audioSource = null;
+        GameData.loadMusicConfig(() => {
+            director.preloadScene("game", () => {
+                director.loadScene("game");
+            });
+        })
+
+
+
     }
 
     btnQuitGameEvent(): void {
