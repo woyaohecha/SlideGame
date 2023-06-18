@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, director, sys, ProgressBar, UITransform, profiler } from 'cc';
-import { GameData } from '../global/GameData';
+import { GameData, OS } from '../global/GameData';
 import HttpUnit from '../NetWork/HttpUnit';
 
 const { ccclass, property } = _decorator;
@@ -17,6 +17,15 @@ export class Loading extends Component {
         director.preloadScene("start");
         this.ball = this.loadingBar.node.getChildByName("Bar").getChildByName("BallNode");
         profiler.hideStats();
+        if (sys.isMobile) {
+            if (sys.os === sys.OS.IOS) {
+                console.log("当前运行的系统是 iOS");
+                GameData.OS = OS.IOS;
+            } else if (sys.os === sys.OS.ANDROID) {
+                console.log("当前运行的系统是 Android");
+                GameData.OS = OS.ANDROID;
+            }
+        }
     }
 
     start() {

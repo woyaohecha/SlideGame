@@ -16,7 +16,7 @@ import { GlobalModel } from '../global/GlobalModel';
 
 import HttpUnit from '../NetWork/HttpUnit';
 import bridge from 'dsbridge-cocos';
-import { GameData } from '../global/GameData';
+import { GameData, OS } from '../global/GameData';
 
 const { ccclass, property } = _decorator;
 
@@ -152,22 +152,18 @@ export class GameUI extends Component implements IGameUI {
         //     // self.OnContinueBtn();
         // });
 
-        bridge.register("notifySlide", (code) => {
-            self.notifySlide(code);
-        })
+        if (GameData.OS == OS.ANDROID) {
+            bridge.register("notifySlide", () => {
+                self.notifySlide();
+            })
 
-        bridge.register("disconnect", (code) => {
-            console.log("蓝牙断开链接 disconnect");
-            self.audioSource.stop();
-            let Progress = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
-
-            HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName);
-
-            GlobalModel.getInstances().setGameOver(1);
-            director.preloadScene("GameOver", () => {
-                director.loadScene("GameOver");
-            });
-        })
+            bridge.register("disconnect", (code) => {
+                self.disconnectCallback();
+            })
+        } else {
+            window["notifySlideCallback"] = this.notifySlide.bind(this);
+            window["disconnectCallback"] = this.disconnectCallback.bind(this);
+        }
         this.missPos = this.MissNode.getPosition();
         this.comboPos = this.ComboNode.getPosition();
     }
@@ -200,6 +196,18 @@ export class GameUI extends Component implements IGameUI {
 
 
     }
+
+    disconnectCallback() {
+        console.log("蓝牙断开链接 disconnect");
+        this.audioSource.stop();
+        let Progress = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
+        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName);
+        GlobalModel.getInstances().setGameOver(1);
+        director.preloadScene("GameOver", () => {
+            director.loadScene("GameOver");
+        });
+    }
+
 
     onDestroy() {
         var self = this;
@@ -1002,18 +1010,10 @@ export class GameUI extends Component implements IGameUI {
         this.showPassUI();
     }
 
-    notifySlide(code?) {
-        console.error("原生消息:" + code);
-
-        console.error("--------------------------------");
-        console.log("当前播放音乐：", GameData.currentMusicName);
-        console.log("当前音频状态：", this.audioSource.state);
-        console.log("是否正在播放：", this.audioSource.playing);
-        console.log("当前音频时间：", this.audioSource.currentTime);
-        console.log("我的计时器：", this.TimeLabel.string);
-        if (code) {
-        }
-        let nextZ: number = this.mGamePresenter.mGameModel.getNextStageZ();
+    notifySlide() {
+        let DateTime = new Date();
+        let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
+        console.error("收到native消息:" + Time);
         let index: number = this.mGamePresenter.getPlayerStageIndex();
         let stageNode: Node = this.stageArr[index];
         let distance: number = Math.abs(this.zPos - stageNode.position.z);
@@ -1024,10 +1024,6 @@ export class GameUI extends Component implements IGameUI {
         if (distance > 2) {
             this.xPos = 0;
         }
-
-        let DateTime = new Date();
-        let Time = DateTime.toLocaleDateString() + "-" + DateTime.toLocaleTimeString('chinese', { hour12: false }) + ":" + DateTime.getMilliseconds();
-        console.error("收到消息:" + Time);
     }
 
     setSnow() {

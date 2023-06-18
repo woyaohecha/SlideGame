@@ -9,7 +9,7 @@
  * Copyright (c) 2023 by 林武, All Rights Reserved. 
  */
 
-import { _decorator, Component, Node, AudioClip, loader, Vec2, Vec3, instantiate, UIModelComponent, UITransformComponent, AudioSourceComponent, LabelComponent, director, Label, game, assetManager, ImageAsset, Sprite, SpriteFrame, Texture2D, AudioSource, profiler } from 'cc';
+import { _decorator, Component, Node, AudioClip, loader, Vec2, Vec3, instantiate, UIModelComponent, UITransformComponent, AudioSourceComponent, LabelComponent, director, Label, game, assetManager, ImageAsset, Sprite, SpriteFrame, Texture2D, AudioSource, profiler, sys } from 'cc';
 
 import { GlobalModel } from '../global/GlobalModel';
 import { IStartUI } from './StartContract';
@@ -49,7 +49,7 @@ export class StartUI extends Component implements IStartUI {
     start() {
         director.preloadScene("game");
         this.init();
-
+        console.log(sys.platform)
     }
     //
     init(): void {

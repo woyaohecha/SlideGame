@@ -6,7 +6,7 @@ const { ccclass, property } = _decorator;
 export class ToggleManager extends Component {
 
     toggleGroupEvent(e) {
-        GameData.mode = this.node.children.indexOf(e.node);
+
     }
 }
 

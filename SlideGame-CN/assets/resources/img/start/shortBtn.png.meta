@@ -2,7 +2,7 @@
   "ver": "1.0.25",
   "importer": "image",
   "imported": true,
-  "uuid": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9",
+  "uuid": "6efb875a-c044-46f1-adc4-73d2c25bd7d0",
   "files": [
     ".json",
     ".png"
@@ -10,8 +10,8 @@
   "subMetas": {
     "6c48a": {
       "importer": "texture",
-      "uuid": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9@6c48a",
-      "displayName": "按钮／长按钮_主按钮_黑色实心_可操作备份",
+      "uuid": "6efb875a-c044-46f1-adc4-73d2c25bd7d0@6c48a",
+      "displayName": "shortBtn",
       "id": "6c48a",
       "name": "texture",
       "userData": {
@@ -22,7 +22,7 @@
         "mipfilter": "nearest",
         "anisotropy": 0,
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9",
+        "imageUuidOrDatabaseUri": "6efb875a-c044-46f1-adc4-73d2c25bd7d0",
         "visible": false
       },
       "ver": "1.0.22",
@@ -34,8 +34,8 @@
     },
     "f9941": {
       "importer": "sprite-frame",
-      "uuid": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9@f9941",
-      "displayName": "按钮／长按钮_主按钮_黑色实心_可操作备份",
+      "uuid": "6efb875a-c044-46f1-adc4-73d2c25bd7d0@f9941",
+      "displayName": "shortBtn",
       "id": "f9941",
       "name": "spriteFrame",
       "userData": {
@@ -114,7 +114,7 @@
           ]
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9@6c48a",
+        "imageUuidOrDatabaseUri": "6efb875a-c044-46f1-adc4-73d2c25bd7d0@6c48a",
         "atlasUuid": ""
       },
       "ver": "1.0.11",
@@ -129,6 +129,6 @@
     "type": "sprite-frame",
     "fixAlphaTransparencyArtifacts": true,
     "hasAlpha": true,
-    "redirect": "d70c98c3-8cf1-4666-973f-e5f4e9fcfcd9@f9941"
+    "redirect": "6efb875a-c044-46f1-adc4-73d2c25bd7d0@f9941"
   }
 }

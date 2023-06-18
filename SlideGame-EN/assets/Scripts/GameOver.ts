@@ -11,8 +11,9 @@
 import { _decorator, Component, Node, director, Label, math } from 'cc';
 import bridge from 'dsbridge-cocos';
 import DataController from './common/DataController';
-import { GameData } from './global/GameData';
+import { GameData, OS } from './global/GameData';
 import { GlobalModel } from './global/GlobalModel';
+import { _window } from './start/Home';
 import { RankScrollView } from './start/RankScrollView';
 const { ccclass, property } = _decorator;
 
@@ -42,6 +43,10 @@ export class GameOver extends Component {
     @property({ type: Label })
     MISS: Label = null;
 
+    onLoad() {
+        window["restartCallback"] = this.restartCallback.bind(this);//开始游戏调用原生start后的回调方法
+    }
+
     start() {
         this.node.getChildByName("RankScrollView").getComponent(RankScrollView).UpDateRank();
 
@@ -50,9 +55,13 @@ export class GameOver extends Component {
 
         this.InitData();
 
-        console.log("游戏结束 存在方法:", bridge.hasNativeMethod("com.fed.game.stop"));
-        if (bridge.hasNativeMethod("com.fed.game.stop")) {
-            bridge.call("com.fed.game.stop")
+        if (GameData.OS == OS.ANDROID) {
+            console.log("游戏结束 存在方法:", bridge.hasNativeMethod("com.fed.game.stop_android"));
+            if (bridge.hasNativeMethod("com.fed.game.stop_android")) {
+                bridge.call("com.fed.game.stop_android")
+            }
+        } else {
+            _window.webkit.messageHandlers.stop_ios.postMessage("");
         }
     }
 
@@ -94,17 +103,26 @@ export class GameOver extends Component {
     }
 
     OnRestartBtn() {
-        console.log("重新开始游戏 com.fed.game.start 存在方法:", bridge.hasNativeMethod("com.fed.game.start"));
-        if (bridge.hasNativeMethod("com.fed.game.start")) {
-            bridge.call("com.fed.game.start", null, function (ret) {
-                console.log("重新开始游戏 com.fed.game.start 收到消息:", JSON.stringify(ret));
-                if (JSON.stringify(ret)) {
-                    director.preloadScene("game", () => {
-                        director.loadScene("game");
-                    });
-                }
-            })
+        let self = this;
+        if (GameData.OS == OS.ANDROID) {
+            console.log("重新开始游戏 com.fed.game.start_android 存在方法:", bridge.hasNativeMethod("com.fed.game.start_android"));
+            if (bridge.hasNativeMethod("com.fed.game.start_android")) {
+                bridge.call("com.fed.game.start_android", null, function (ret) {
+                    console.log("重新开始游戏 com.fed.game.start_android 收到消息:", JSON.stringify(ret));
+                    if (JSON.stringify(ret)) {
+                        self.restartCallback();
+                    }
+                })
+            }
+        } else {
+            _window.webkit.messageHandlers.start_ios.postMessage("");
         }
+    }
+
+    restartCallback() {
+        director.preloadScene("game", () => {
+            director.loadScene("game");
+        });
     }
 }
 

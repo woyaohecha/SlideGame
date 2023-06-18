@@ -1,9 +1,14 @@
 import { _decorator, Component, Node, AudioClip, AudioSource, resources, JsonAsset } from 'cc';
 const { ccclass, property } = _decorator;
 
+export enum OS {
+    IOS,
+    ANDROID
+}
+
 @ccclass('GameData')
 export class GameData {
-
+    public static OS: OS = OS.IOS;
     private static isEN: boolean = true;
     public static musicListConfig: any = null;   //首页歌曲配置表
     public static currentMusic: AudioClip = null;   //当前播放的歌曲
