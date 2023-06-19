@@ -116,7 +116,7 @@ export class GameOver extends Component {
                 })
             }
         } else {
-            _window.webkit.messageHandlers.start_ios.postMessage("");
+            _window.webkit.messageHandlers.restart_ios.postMessage("");
         }
 
     }
