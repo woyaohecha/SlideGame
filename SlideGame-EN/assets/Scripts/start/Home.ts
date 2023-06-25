@@ -70,40 +70,44 @@ export class Home extends Component {
 
     btnStartGameEvent(): void {
         var self = this;
-        if (GameData.OS == OS.ANDROID) {
-            console.log("开始游戏 com.fed.game.start_android 存在方法:", bridge.hasNativeMethod("com.fed.game.android"));
-            if (bridge.hasNativeMethod("com.fed.game.start_android")) {
-                bridge.call("com.fed.game.start", null, function (ret) {
-                    if (JSON.stringify(ret)) {
-                        self.startCallback();
-                    }
-                })
-            }
-        } else {
-            _window.webkit.messageHandlers.start_ios.postMessage("");
+        switch (GameData.OS) {
+            case OS.ANDROID:
+                console.log("开始游戏---调用android原生方法---com.fed.game.start_android是否存在:", bridge.hasNativeMethod("com.fed.game.start_android"));
+                if (bridge.hasNativeMethod("com.fed.game.start_android")) {
+                    bridge.call("com.fed.game.start_android", null, function (ret) {
+                        if (JSON.stringify(ret)) {
+                            self.startCallback();
+                        }
+                    })
+                }
+                break;
+            case OS.IOS:
+                console.log("开始游戏---调用ios原生方法---start_ios");
+                _window.webkit.messageHandlers.start_ios.postMessage("");
+                break;
+            default:
+                console.log("开始游戏---浏览器不调用方法---直接进入")
+                self.startCallback()
+                break;
         }
-
-
-        // self.loadLayer.active = true;
-        // self.audioSource.stop();
-        // self.audioSource = null;
-        // GameData.loadMusicConfig(() => {
-        //     director.preloadScene("game", () => {
-        //         director.loadScene("game");
-        //     });
-        // })
     }
 
     btnQuitGameEvent(): void {
-        if (GameData.OS == OS.ANDROID) {
-            console.log("--------------- 准备调用原生api  存在方法", bridge.hasNativeMethod("com.fed.game.quit_android"));
-            if (bridge.hasNativeMethod("com.fed.game.quit_android")) {
-                bridge.call("com.fed.game.quit_android")
-            }
-        } else {
-            _window.webkit.messageHandlers.quit_ios.postMessage("");
+        switch (GameData.OS) {
+            case OS.ANDROID:
+                console.log("退出游戏---调用android原生方法---com.fed.game.quit_android是否存在:", bridge.hasNativeMethod("com.fed.game.quit_android"));
+                if (bridge.hasNativeMethod("com.fed.game.quit_android")) {
+                    bridge.call("com.fed.game.quit_android")
+                }
+                break;
+            case OS.IOS:
+                console.log("退出游戏---调用ios原生方法---quit_ios");
+                _window.webkit.messageHandlers.quit_ios.postMessage("");
+                break;
+            default:
+                console.log("退出游戏---浏览器不调用方法---")
+                break;
         }
-
     }
 
     openRule() {

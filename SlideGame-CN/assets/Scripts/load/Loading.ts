@@ -1,6 +1,8 @@
 import { _decorator, Component, Node, director, sys, ProgressBar, UITransform, profiler } from 'cc';
+import bridge from 'dsbridge-cocos';
 import { GameData, OS } from '../global/GameData';
 import HttpUnit from '../NetWork/HttpUnit';
+import { _window } from '../start/Home';
 
 const { ccclass, property } = _decorator;
 
@@ -24,6 +26,9 @@ export class Loading extends Component {
             } else if (sys.os === sys.OS.ANDROID) {
                 console.log("当前运行的系统是 Android");
                 GameData.OS = OS.ANDROID;
+            } else {
+                GameData.OS = OS.CHROME;
+                console.log("当前运行的系统是浏览器:", sys.isBrowser);
             }
         }
     }
@@ -67,6 +72,19 @@ export class Loading extends Component {
             }
         }
         if (this.loadingBar.progress >= 1) {
+            switch (GameData.OS) {
+                case OS.ANDROID:
+                    console.log("--------------- 调用原生api  存在方法", bridge.hasNativeMethod("com.fed.game.gameLoaded_android"));
+                    if (bridge.hasNativeMethod("com.fed.game.gameLoaded_android")) {
+                        bridge.call("com.fed.game.gameLoaded_android")
+                    }
+                    break;
+                case OS.IOS:
+                    _window.webkit.messageHandlers.gameLoaded_ios.postMessage("");
+                    break;
+                default:
+                    break;
+            }
             director.loadScene("start");
         }
     }

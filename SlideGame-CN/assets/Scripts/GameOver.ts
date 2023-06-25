@@ -105,20 +105,27 @@ export class GameOver extends Component {
 
     OnRestartBtn() {
         let self = this;
-        if (GameData.OS == OS.ANDROID) {
-            console.log("重新开始游戏 com.fed.game.start_android 存在方法:", bridge.hasNativeMethod("com.fed.game.start_android"));
-            if (bridge.hasNativeMethod("com.fed.game.start_android")) {
-                bridge.call("com.fed.game.start_android", null, function (ret) {
-                    console.log("重新开始游戏 com.fed.game.start_android 收到消息:", JSON.stringify(ret));
-                    if (JSON.stringify(ret)) {
-                        self.restartCallback();
-                    }
-                })
-            }
-        } else {
-            _window.webkit.messageHandlers.restart_ios.postMessage("");
+        switch (GameData.OS) {
+            case OS.ANDROID:
+                console.log("重新开始---调用android原生方法---com.fed.game.start_android是否存在:", bridge.hasNativeMethod("com.fed.game.start_android"));
+                if (bridge.hasNativeMethod("com.fed.game.start_android")) {
+                    bridge.call("com.fed.game.start_android", null, function (ret) {
+                        console.log("开始游戏 com.fed.game.start_android 收到消息:", JSON.stringify(ret));
+                        if (JSON.stringify(ret)) {
+                            self.restartCallback();
+                        }
+                    })
+                }
+                break;
+            case OS.IOS:
+                console.log("重新开始---调用ios原生方法---restart_ios");
+                _window.webkit.messageHandlers.restart_ios.postMessage("");
+                break;
+            default:
+                console.log("重新开始---浏览器不调用方法---直接进入")
+                self.restartCallback();
+                break;
         }
-
     }
 
     restartCallback() {

@@ -72,7 +72,6 @@ export default class HttpUnit {
         let paramsObj: any = {};
         paramsObj.token = HttpUnit.token;
         HttpUnit.Post(url, paramsObj, this, (res) => {
-            console.log(url);
             console.log("------------------------ HttpUnit 加载用户信息 res:", res);
             if (res.data) {
                 HttpUnit.uid = res.data.uid;

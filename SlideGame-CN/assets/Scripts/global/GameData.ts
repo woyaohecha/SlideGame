@@ -3,7 +3,8 @@ const { ccclass, property } = _decorator;
 
 export enum OS {
     IOS,
-    ANDROID
+    ANDROID,
+    CHROME
 }
 
 @ccclass('GameData')

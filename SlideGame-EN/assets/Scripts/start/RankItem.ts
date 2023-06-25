@@ -31,9 +31,9 @@ export class RankItem extends Component {
     @property({ type: Label })
     score: Label = null;
     start() {
-        if(this.node.parent.parent.parent.parent.name == "StartUI"){
-            this.nickname.color = new Color(125,125,125);
-            this.score.color = new Color(255,255,255);
+        if (this.node.parent.parent.parent.parent.name == "StartUI") {
+            this.nickname.color = new Color(125, 125, 125);
+            this.score.color = new Color(255, 255, 255);
         }
     }
 
@@ -55,8 +55,7 @@ export class RankItem extends Component {
 
         var self = this;
         var avatarUrl = data.avatar_uri;
-        console.log("------------------------- avatarUrl:", avatarUrl);
-        if(avatarUrl){
+        if (avatarUrl) {
             assetManager.loadRemote(avatarUrl, { ext: '.jpg' }, (err, data: ImageAsset) => {
                 if (err) {
                     console.log(err, data);
