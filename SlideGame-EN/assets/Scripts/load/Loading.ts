@@ -18,6 +18,11 @@ export class Loading extends Component {
     onLoad() {
         director.preloadScene("start");
         this.ball = this.loadingBar.node.getChildByName("Bar").getChildByName("BallNode");
+        let token = this.getBrowserValue("token");
+        if (token) {
+            HttpUnit.token = token;
+        }
+        console.log("-------token:", HttpUnit.token);
         profiler.hideStats();
         if (sys.isMobile) {
             if (sys.os === sys.OS.IOS) {
@@ -88,5 +93,19 @@ export class Loading extends Component {
             director.loadScene("start");
         }
     }
+
+    public getBrowserValue(value: string) {
+        let paramStr = window.location.search.substring(1);
+        let params = paramStr.split("&");
+        for (var i = 0; i < params.length; i++) {
+            let param = params[i].split("=");
+            if (param[0] == value) {
+                return param[1];
+            }
+        }
+        return null;
+    }
 }
+
+
 

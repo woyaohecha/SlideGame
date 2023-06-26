@@ -55,13 +55,18 @@ export class GameOver extends Component {
 
         this.InitData();
 
-        if (GameData.OS == OS.ANDROID) {
-            console.log("游戏结束 存在方法:", bridge.hasNativeMethod("com.fed.game.stop_android"));
-            if (bridge.hasNativeMethod("com.fed.game.stop_android")) {
-                bridge.call("com.fed.game.stop_android")
-            }
-        } else {
-            _window.webkit.messageHandlers.stop_ios.postMessage("");
+        switch (GameData.OS) {
+            case OS.ANDROID:
+                console.log("游戏结束 存在方法:", bridge.hasNativeMethod("com.fed.game.stop_android"));
+                if (bridge.hasNativeMethod("com.fed.game.stop_android")) {
+                    bridge.call("com.fed.game.stop_android")
+                }
+                break;
+            case OS.IOS:
+                _window.webkit.messageHandlers.stop_ios.postMessage("");
+                break;
+            default:
+                break;
         }
     }
 
@@ -71,10 +76,14 @@ export class GameOver extends Component {
 
     InitData() {
         let GameOver = GlobalModel.getInstances().getGameOver();
-        if (GameOver == 0) {
-            this.FailNode.active = true;
-        } else if (GameOver == 1) {
+        let goals = GameOver = Number(GameData.musicListConfig[GameData.currentMusicIndex].slideGoals.slice(0, 3));
+        let completedCount = Number(GlobalModel.getInstances().getGameNumLabel().split("/")[0]);
+        if (goals <= completedCount) {
+            this.FailNode.active = false;
             this.PassLevelNode.active = true;
+        } else {
+            this.FailNode.active = true;
+            this.PassLevelNode.active = false;
         }
 
         let musicName = GameData.currentMusicName;

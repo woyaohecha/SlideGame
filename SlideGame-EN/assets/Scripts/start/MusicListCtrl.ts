@@ -128,6 +128,7 @@ export class MusicList extends Component {
     }
 
     startPos: Vec2;
+    isMoving: boolean = false;
     onTouchStart(e: EventTouch) {
         this.startPos = e.getLocation();
     }
@@ -148,14 +149,15 @@ export class MusicList extends Component {
         } else {
             this.musicListNode.children[itemIndex].getChildByName("Checked").active = false;
         }
-
+        this.isMoving = false;
     }
 
     onTouchEnd(e: EventTouch) {
         let len = e.getLocation().y - this.startPos.y;
-        if (Math.abs(len) < 100) {
+        if (Math.abs(len) < 100 || this.isMoving) {
             return;
         }
+        this.isMoving = true;
         if (len > 0) {  //向上滑动
             let musicIndex = GameData.currentMusicIndex - 1 >= 0 ? GameData.currentMusicIndex - 1 : GameData.musicListConfig.length - 1;
             this.currentItemIndex = this.currentItemIndex - 1 >= 0 ? this.currentItemIndex - 1 : 7;
@@ -194,6 +196,7 @@ export class MusicList extends Component {
 
     clickChangeMusic(e: EventTouch) {
         if (e.currentTarget.position.y == 0) {
+            this.isMoving = true;
             let musicIndex = GameData.currentMusicIndex - 1 >= 0 ? GameData.currentMusicIndex - 1 : GameData.musicListConfig.length - 1;
             this.currentItemIndex = this.currentItemIndex - 1 >= 0 ? this.currentItemIndex - 1 : 7;
             let preSetItemIndex = this.currentItemIndex - 1 >= 0 ? this.currentItemIndex - 1 : 7;
@@ -210,6 +213,7 @@ export class MusicList extends Component {
                     .start();
             }
         } else if (e.currentTarget.position.y == this.musicListNode.getComponent(UITransform).width / 2) {
+            this.isMoving = true;
             let musicIndex = GameData.currentMusicIndex + 1 <= GameData.musicListConfig.length - 1 ? GameData.currentMusicIndex + 1 : 0;
             this.currentItemIndex = this.currentItemIndex + 1 <= 7 ? this.currentItemIndex + 1 : 0;
             let preSetItemIndex = this.currentItemIndex + 1 <= 7 ? this.currentItemIndex + 1 : 0;

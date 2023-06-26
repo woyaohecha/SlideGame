@@ -96,6 +96,7 @@ export class StartUI extends Component implements IStartUI {
         if (HttpUnit.UserInfo) {
             this.Name.string = HttpUnit.UserInfo.nickname;
             var avatarUrl = HttpUnit.UserInfo.avatar_uri;
+            console.log(avatarUrl);
             if (avatarUrl) {
                 assetManager.loadRemote(avatarUrl, { ext: '.jpg' }, (err, data: ImageAsset) => {
                     if (err) {

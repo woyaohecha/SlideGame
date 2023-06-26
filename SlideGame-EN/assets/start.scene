@@ -3098,7 +3098,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 280.06,
+      "width": 403.93199999999996,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3128,13 +3128,13 @@
       "a": 255
     },
     "_string": "Slide Goals：200 Slide",
-    "_horizontalAlign": 1,
+    "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 27,
     "_fontSize": 27,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
-    "_overflow": 0,
+    "_overflow": 3,
     "_enableWrapText": true,
     "_font": {
       "__uuid__": "d68d5c08-f699-4ea5-904a-51360a8acb9e",
@@ -9685,7 +9685,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 115.09,
+      "width": 131.78,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -9714,7 +9714,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Loding...",
+    "_string": "Loading...",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 30,

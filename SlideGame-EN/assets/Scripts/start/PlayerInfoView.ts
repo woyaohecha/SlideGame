@@ -37,7 +37,7 @@ export class PlayerInfoView extends Component {
 
     protected onEnable(): void {
         var self = this;
-        HttpUnit.getUserInfoByToken();
+        // HttpUnit.getUserInfoByToken();
     }
 
     start() {
@@ -53,7 +53,7 @@ export class PlayerInfoView extends Component {
 
             var avatarUrl = HttpUnit.UserInfo.avatar_uri;
             if (avatarUrl) {
-                assetManager.loadRemote(avatarUrl, { ext: '.jpg' }, (err, data: ImageAsset) => {
+                assetManager.loadRemote(avatarUrl, { ext: '.jpeg' }, (err, data: ImageAsset) => {
                     if (err) {
                         console.log(err, data);
                         return;

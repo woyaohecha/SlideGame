@@ -10022,7 +10022,7 @@
     "_enabled": true,
     "__prefab": null,
     "_clip": {
-      "__uuid__": "874383ba-3c7a-49f9-8be9-2efeae94c905",
+      "__uuid__": "fa90908d-7b46-4b4c-bd42-f1640071590b",
       "__expectedType__": "cc.AudioClip"
     },
     "_loop": false,
@@ -10083,7 +10083,7 @@
     "_enabled": true,
     "__prefab": null,
     "_clip": {
-      "__uuid__": "35c5843c-6ed1-4cce-81d9-af9dc1420752",
+      "__uuid__": "a6105a34-4191-408b-ac90-5bbdaa42a83c",
       "__expectedType__": "cc.AudioClip"
     },
     "_loop": false,

@@ -10016,7 +10016,7 @@
     "_enabled": true,
     "__prefab": null,
     "_clip": {
-      "__uuid__": "874383ba-3c7a-49f9-8be9-2efeae94c905",
+      "__uuid__": "46952dd1-c296-4a9b-82c2-6c779a0338e5",
       "__expectedType__": "cc.AudioClip"
     },
     "_loop": false,
@@ -10077,7 +10077,7 @@
     "_enabled": true,
     "__prefab": null,
     "_clip": {
-      "__uuid__": "35c5843c-6ed1-4cce-81d9-af9dc1420752",
+      "__uuid__": "8cf3ff16-a3bc-48b2-a83c-164798586a17",
       "__expectedType__": "cc.AudioClip"
     },
     "_loop": false,

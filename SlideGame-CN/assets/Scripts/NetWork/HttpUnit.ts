@@ -150,6 +150,9 @@ export default class HttpUnit {
 
     public static loadUserProfile(callback: Function) {
         let url = this.UserInfo.avatar_uri;
+        if (!url) {
+            return;
+        }
         assetManager.loadRemote(url, (e, image: ImageAsset) => {
             let sp = new SpriteFrame();
             let texture = new Texture2D();
