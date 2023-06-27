@@ -149,11 +149,12 @@ export default class HttpUnit {
     }
 
     public static loadUserProfile(callback: Function) {
+        console.log("加载首页头像");
         let url = this.UserInfo.avatar_uri;
         if (!url) {
             return;
         }
-        assetManager.loadRemote(url, (e, image: ImageAsset) => {
+        assetManager.loadRemote(url, { ext: '.jpg' }, (e, image: ImageAsset) => {
             let sp = new SpriteFrame();
             let texture = new Texture2D();
             texture.image = image;

@@ -965,11 +965,11 @@ export class GameUI extends Component implements IGameUI {
         this.audioSource.stop();
         let Progress = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
 
-        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName);
-
-        GlobalModel.getInstances().setGameOver(1);
-        director.preloadScene("GameOver", () => {
-            director.loadScene("GameOver");
+        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName, () => {
+            GlobalModel.getInstances().setGameOver(1);
+            director.preloadScene("GameOver", () => {
+                director.loadScene("GameOver");
+            });
         });
     }
 

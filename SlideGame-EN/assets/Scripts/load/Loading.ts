@@ -71,7 +71,7 @@ export class Loading extends Component {
             let value = this.loadingBar.progress + 0.05 * Math.random();
             this.setBar(value);
         } else {
-            if (GameData.musicListConfig && HttpUnit.UserInfo) {
+            if (GameData.musicListConfig && HttpUnit.UserInfo && GameData.currentMusic) {
                 let value = this.loadingBar.progress + 0.05 * Math.random();
                 this.setBar(value);
             }

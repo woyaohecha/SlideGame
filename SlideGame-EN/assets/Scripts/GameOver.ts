@@ -75,9 +75,11 @@ export class GameOver extends Component {
     }
 
     InitData() {
-        let GameOver = GlobalModel.getInstances().getGameOver();
-        let goals = GameOver = Number(GameData.musicListConfig[GameData.currentMusicIndex].slideGoals.slice(0, 3));
+        // let GameOver = GlobalModel.getInstances().getGameOver();
+        let goals = Number(GameData.musicListConfig[GameData.currentMusicIndex].slideGoals.slice(0, 3));
+        console.log("goals-------------:", goals);
         let completedCount = Number(GlobalModel.getInstances().getGameNumLabel().split("/")[0]);
+
         if (goals <= completedCount) {
             this.FailNode.active = false;
             this.PassLevelNode.active = true;
@@ -106,9 +108,13 @@ export class GameOver extends Component {
     }
 
     OnReturnBtn() {
-        director.preloadScene("start", () => {
+        GameData.loadMusic(0, () => {
             director.loadScene("start");
         });
+        // director.preloadScene("start", () => {
+        //     // GameData.currentMusicIndex = 0;
+        //     director.loadScene("start");
+        // });
     }
 
     OnRestartBtn() {

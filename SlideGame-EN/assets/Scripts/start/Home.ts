@@ -30,10 +30,11 @@ export class Home extends Component {
     onLoad() {
         this.audioSource = this.getComponent(AudioSource);
         window["startCallback"] = this.startCallback.bind(this);//开始游戏调用原生start后的回调方法
+        this.initHome();
     }
 
     start() {
-        this.initHome();
+
     }
 
     initHome() {

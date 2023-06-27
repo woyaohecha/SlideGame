@@ -38,12 +38,13 @@ export class RankScrollView extends Component {
             }
 
             this.content.getComponent(UITransform).height = (data.songRank.length * 80) + 20;
-
-            if (this.node.scene.name == "GameOver") {
+            console.log("data", data);
+            if (this.node.scene.name == "GameOver" && data.userRank) {
                 this.myscore.string = "" + data.userRank.score;
                 this.myRank.string = "" + data.userRank.rownum;
             }
         }
+        console.log("currentMusicName", GameData.currentMusicName);
         HttpUnit.getSongtRank(GameData.currentMusicName, callback);
     }
 }
