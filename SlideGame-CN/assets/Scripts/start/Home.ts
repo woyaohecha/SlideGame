@@ -24,6 +24,9 @@ export class Home extends Component {
     @property(Node)
     loadLayer: Node = null;
 
+    @property(Node)
+    tips: Node = null;
+
     audioSource: AudioSource = null;
 
 
@@ -37,6 +40,7 @@ export class Home extends Component {
     }
 
     initHome() {
+        this.tips.active = false;
         GameData.loadMusic(0, (clip) => {
             this.audioSource.clip = clip;
             this.audioSource.play();
@@ -68,8 +72,22 @@ export class Home extends Component {
         })
     }
 
+    showTips() {
+        if (this.tips.active) {
+            return;
+        }
+        this.tips.active = true;
+        this.scheduleOnce(() => {
+            this.tips.active = false;
+        }, 1)
+    }
+
     btnStartGameEvent(): void {
         var self = this;
+        if (GameData.currentMusicIndex > Number(HttpUnit.UserInfo.level_num)) {
+            this.showTips();
+            return;
+        }
         switch (GameData.OS) {
             case OS.ANDROID:
                 console.log("开始游戏---调用android原生方法---com.fed.game.start_android是否存在:", bridge.hasNativeMethod("com.fed.game.start_android"));

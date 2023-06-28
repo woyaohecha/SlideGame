@@ -15,7 +15,7 @@ import NetConfig from "./NetConfig";
 
 export default class HttpUnit {
 
-    public static token = "a5gWU+8KejbcQ4bvp2iWntMx0+t61fheNRSxacRSBAWuuc6DiL4OWEF32pyeHu9ssfF+1hDzSOJTIiB+SJCjIKp1N0FmWpPGLHXK3jjD3r4vkKEXThDLE1A94TlfMbHcktrMeJ8MYrBdiiZM6x4+V59+dqYSxlOBHGdxGEaqVAQEvC77QvifCkfulC/b4sms";
+    public static token = "GCZ+KlOB6TNvJgT5il7hKrEDY25QKbd9rfctQ0PM0tUBsF9OVFskJaut+G/EGve2VWos52EfA/YqkFmbeznYdsQn5oIeszxggUj5G/XP9iAmAvUMjUDnnCFInXdBCEYYDsmLautwxAhlufnZqWltVaukXnfogaRL+A9pduXXbc+MZxOH2l3OPc0fIyc+6NYN";
 
     public static uid = "";
 

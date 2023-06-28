@@ -337,7 +337,7 @@
     "_priority": 1073741824,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 435.15135699373695,
+    "_orthoHeight": 431.09263157894736,
     "_near": 1,
     "_far": 2000,
     "_color": {
@@ -1008,7 +1008,10 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": null,
+    "_normalSprite": {
+      "__uuid__": "97751b0e-76a6-4700-b7a8-5efcf8de6bba@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -1290,7 +1293,10 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": null,
+    "_normalSprite": {
+      "__uuid__": "08bb2526-fd8d-428f-831c-c7b06f6ec7ed@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    },
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,

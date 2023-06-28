@@ -19,6 +19,12 @@ export class MusicList extends Component {
     @property(RankScrollView)
     rankScrollView: RankScrollView = null;
 
+    @property(Label)
+    totalLabel: Label = null;
+
+    @property(Label)
+    indexLabel: Label = null;
+
     musicListNode: Node = null;
     currentItemIndex: number = 0;
     audioSource: AudioSource = null;
@@ -83,6 +89,8 @@ export class MusicList extends Component {
             musicItem.setPosition(pos);
             this.musicListNode.addChild(musicItem);
         }
+        this.totalLabel.string = String(GameData.musicListConfig.length);
+        this.indexLabel.string = "/ " + (GameData.currentMusicIndex + 1);
         this.setMusicInfoPanel();
         this.rankScrollView.UpDateRank();
         this.audioSource = this.node.parent.getComponent(Home).audioSource;
@@ -90,7 +98,7 @@ export class MusicList extends Component {
 
     setMusicItem(panelItem: Node, musicIndex: number) {
         let image: Sprite = panelItem.getChildByName("Image").getChildByName("Mask").children[0].getComponent(Sprite);
-        let Locked: Node = panelItem.getChildByName("Locked");
+        let locked: Node = panelItem.getChildByName("Locked");
         let name: Label = panelItem.getChildByName("Desc").getChildByName("Name").getComponent(Label);
         let Time: Label = panelItem.getChildByName("Desc").getChildByName("Time").getComponent(Label);
         let star: Label = panelItem.getChildByName("Desc").getChildByName("Star").getComponent(Label);
@@ -103,7 +111,8 @@ export class MusicList extends Component {
             image.spriteFrame = asset;
 
         })
-        Locked.active = !Boolean(HttpUnit.levelLockedInfo[musicIndex]);
+        // locked.active = !Boolean(HttpUnit.levelLockedInfo[musicIndex]);
+        locked.active = !(musicIndex <= Number(HttpUnit.UserInfo.level_num));
         name.string = GameData.musicListConfig[musicIndex].musicName;
         Time.string = GameData.musicListConfig[musicIndex].duration;
         star.string = "x" + GameData.musicListConfig[musicIndex].difficulty;
@@ -125,6 +134,7 @@ export class MusicList extends Component {
         starNum.string = "x" + GameData.musicListConfig[GameData.currentMusicIndex].difficulty;
         bpm.string = "BPM：" + GameData.musicListConfig[GameData.currentMusicIndex].bpm;
         passPanel.string = "Game Conditions：" + GameData.musicListConfig[GameData.currentMusicIndex].gameConditions;
+        this.indexLabel.string = "/ " + (GameData.currentMusicIndex + 1);
     }
 
     startPos: Vec2;

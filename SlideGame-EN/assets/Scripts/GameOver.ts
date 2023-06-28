@@ -13,6 +13,7 @@ import bridge from 'dsbridge-cocos';
 import DataController from './common/DataController';
 import { GameData, OS } from './global/GameData';
 import { GlobalModel } from './global/GlobalModel';
+import HttpUnit from './NetWork/HttpUnit';
 import { _window } from './start/Home';
 import { RankScrollView } from './start/RankScrollView';
 const { ccclass, property } = _decorator;
@@ -75,19 +76,6 @@ export class GameOver extends Component {
     }
 
     InitData() {
-        // let GameOver = GlobalModel.getInstances().getGameOver();
-        let goals = Number(GameData.musicListConfig[GameData.currentMusicIndex].slideGoals.slice(0, 3));
-        console.log("goals-------------:", goals);
-        let completedCount = Number(GlobalModel.getInstances().getGameNumLabel().split("/")[0]);
-
-        if (goals <= completedCount) {
-            this.FailNode.active = false;
-            this.PassLevelNode.active = true;
-        } else {
-            this.FailNode.active = true;
-            this.PassLevelNode.active = false;
-        }
-
         let musicName = GameData.currentMusicName;
         if (musicName.length > 10) {
             musicName = musicName.slice(0, 10) + "...";
@@ -105,6 +93,20 @@ export class GameOver extends Component {
         this.MaxCOMBO.string = GlobalModel.getInstances().getMaxCOMBO() + "";
 
         this.MISS.string = GlobalModel.getInstances().getMISS() + "";
+
+        let completedPercent = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
+        let goalPercent = Number(GameData.musicListConfig[GameData.currentMusicIndex].gameConditions.slice(-3, -1));
+
+        if (goalPercent <= completedPercent) {
+            this.FailNode.active = false;
+            this.PassLevelNode.active = true;
+            if (GameData.currentMusicIndex == Number(HttpUnit.UserInfo.level_num) && GameData.currentMusicIndex < GameData.musicListConfig.length - 1) {
+                HttpUnit.UserInfo.level_num = Number(HttpUnit.UserInfo.level_num) + 1;
+            }
+        } else {
+            this.FailNode.active = true;
+            this.PassLevelNode.active = false;
+        }
     }
 
     OnReturnBtn() {
