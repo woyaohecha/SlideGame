@@ -93,10 +93,9 @@ export class GameOver extends Component {
 
         this.MISS.string = GlobalModel.getInstances().getMISS() + "";
 
-        let completedPercent = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
-        let goalPercent = Number(GameData.musicListConfig[GameData.currentMusicIndex].gameConditions.slice(-3, -1));
+        let isPass = GameData.getIsPass();
 
-        if (goalPercent <= completedPercent) {
+        if (isPass) {
             this.FailNode.active = false;
             this.PassLevelNode.active = true;
             if (GameData.currentMusicIndex == Number(HttpUnit.UserInfo.level_num) && GameData.currentMusicIndex < GameData.musicListConfig.length - 1) {

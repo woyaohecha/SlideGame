@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, AudioClip, AudioSource, resources, JsonAsset } from 'cc';
+import { GlobalModel } from './GlobalModel';
 const { ccclass, property } = _decorator;
 
 export enum OS {
@@ -116,6 +117,12 @@ export class GameData {
             this.currentMusicConfig.slowDown = slowDown;
             callback();
         })
+    }
+
+    public static getIsPass() {
+        let completedPercent = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
+        let goalPercent = Number(GameData.musicListConfig[GameData.currentMusicIndex].gameConditions.slice(-3, -1));
+        return goalPercent <= completedPercent;
     }
 }
 

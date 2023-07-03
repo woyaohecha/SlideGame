@@ -103,14 +103,15 @@ export default class HttpUnit {
     /**
      * 保存用户运动记录
      */
-    public static saveUesrRecord(level_num: number, pace_num: number, score: number, song_name: string, callback?) {
-        console.log("------------------------ HttpUnit 保存用户运动记录 level_num:", level_num + ",pace_num:", pace_num + ",score:", score + ",song_name:", song_name);
+    public static saveUesrRecord(level_num: number, pace_num: number, score: number, song_name: string, is_pass: number, callback?) {
+        console.log("------------------------ HttpUnit 保存用户运动记录 level_num:", level_num + ",pace_num:", pace_num + ",score:", score + ",song_name:", song_name + ",is_pass:", is_pass);
         var url = NetConfig.RootPath + NetConfig.saveUesrRecord;
         let paramsObj: any = {};
         paramsObj.level_num = level_num;
         paramsObj.pace_num = pace_num;
         paramsObj.score = score;
         paramsObj.song_name = song_name;
+        paramsObj.is_pass = is_pass;
         paramsObj.uid = HttpUnit.uid;
         let KeyValue = HttpUnit.JsonToKeyValue(paramsObj);
 

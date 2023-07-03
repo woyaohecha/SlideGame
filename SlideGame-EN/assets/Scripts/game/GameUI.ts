@@ -201,7 +201,7 @@ export class GameUI extends Component implements IGameUI {
         console.log("蓝牙断开链接 disconnect");
         this.audioSource.stop();
         let Progress = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
-        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName, () => {
+        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName, Number(GameData.getIsPass()), () => {
             director.preloadScene("GameOver", () => {
                 GlobalModel.getInstances().setGameOver(1);
                 director.loadScene("GameOver");
@@ -967,7 +967,7 @@ export class GameUI extends Component implements IGameUI {
         this.audioSource.stop();
         let Progress = Math.floor(GlobalModel.getInstances().getGameProgressBar() * 100);
 
-        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName, () => {
+        HttpUnit.saveUesrRecord(GameData.currentMusicIndex, Progress, this.PlsyScore, GameData.currentMusicName, Number(GameData.getIsPass()), () => {
             GlobalModel.getInstances().setGameOver(1);
             director.preloadScene("GameOver", () => {
                 director.loadScene("GameOver");
